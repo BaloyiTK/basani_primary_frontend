@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color:white;
+  font-family: 'Poppins', sans-serif; 
+  /* font-family: 'Inter', sans-serif; */
+}
+
+.hero-section {
+  padding: auto;
+  height: 100vh;
+  background-image: url(../public/istockphoto-803149430-612x612.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-section::before {
+  content: 'Welcome to our School';
+  height: 100vh;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white; /* Sets the color of the text to white */
+  font-size: 36px; /* Sets the font size of the text to 36px */
+  text-align: left; /* Aligns the text to the left */
+  padding: 50px;
+  white-space: pre-wrap; /* Allows whitespace to wrap onto the next line */
+}
+
+
+
+
