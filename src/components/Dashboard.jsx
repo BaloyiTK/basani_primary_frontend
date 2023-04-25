@@ -8,7 +8,7 @@ import TeamForm from "./team/TeamForm";
 import TeamTable from "./team/TeamTable ";
 import axios from "axios";
 import { authActions } from "../store";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import api_endpoint from "../utils/config";
 axios.defaults.withCredentials = true;
@@ -21,7 +21,6 @@ const AdminDashboard = () => {
   const [showTeamForm, setShowTeamForm] = useState(false);
   const [showGalleryForm, setShowGalleryForm] = useState(false);
   const [username, setUsername] = useState();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -93,7 +92,7 @@ const AdminDashboard = () => {
     };
 
     fetchUser();
-  }, []);
+  }, [dispatch,navigate]);
 
   return (
     <div className="bg-gray-100 min-h-screen">

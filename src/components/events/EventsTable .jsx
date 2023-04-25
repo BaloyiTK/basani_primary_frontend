@@ -14,12 +14,7 @@ const EventsTable = () => {
     fetchEvents();
   }, []);
 
-  const handleEdit = (event) => {
-    // handle edit functionality
-    console.log(`Editing event ${event.title}`);
-    const updatedEvents = events.map((e) => (e._id === event._id ? event : e));
-    setEvents(updatedEvents);
-  };
+
 
   const handleDelete = async (event) => {
     // handle delete functionality

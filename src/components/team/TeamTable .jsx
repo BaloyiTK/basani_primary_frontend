@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import TeamForm from "./TeamForm";
 import api_endpoint from "../../utils/config";
 
 const TeamTable = () => {
