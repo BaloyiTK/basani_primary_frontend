@@ -20,9 +20,10 @@ const EventForm = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data);
+     
 
       // do something with response data
+      
     } catch (error) {
       console.error(error);
     }

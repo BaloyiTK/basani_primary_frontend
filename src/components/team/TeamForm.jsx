@@ -25,7 +25,7 @@ const TeamForm = () => {
 
   const submitData = async (Data) => {
     try {
-      console.log(Data);
+
 
       const response = await axios.post(
         `${api_endpoint}/api/team`,
@@ -37,7 +37,7 @@ const TeamForm = () => {
           },
         }
       );
-      console.log(response.data);
+
       // do something with response data
     } catch (error) {
       console.error(error);
@@ -67,7 +67,7 @@ const TeamForm = () => {
             name="name"
             value={formData.name}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow-lg appearance-none focus:outline-none focus:shadow-outline"
           />
         </div>
         <div className="mb-4">
@@ -75,7 +75,7 @@ const TeamForm = () => {
             htmlFor="position"
             className="block text-gray-700 font-bold mb-2"
           >
-            Position
+            Title
           </label>
           <input
             type="text"
@@ -83,7 +83,7 @@ const TeamForm = () => {
             name="position"
             value={formData.position}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow-lg appearance-none focus:outline-none focus:shadow-outline"
           />
         </div>
         <div className="mb-4">

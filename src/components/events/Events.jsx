@@ -6,8 +6,6 @@ import api_endpoint from "../../utils/config";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
-  
-  
 
   useEffect(() => {
     const fetchEvents = async () => {

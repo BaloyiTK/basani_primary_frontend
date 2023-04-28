@@ -30,7 +30,7 @@ const Contact = () => {
 
   };
   return (
-    <div className="grid m-5">
+    <div id="contact" className="grid m-5">
       <div>
       <p className="text-green-600 flex justify-center">{resMessage}</p>
         <div

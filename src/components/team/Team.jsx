@@ -6,8 +6,6 @@ const Team = () => {
   const [members, setMembers] = useState([]);
   const [member, setMember] = useState([]);
 
-  console.log(members && members);
-
   useEffect(() => {
     const fetchMembers = async () => {
       const response = await axios.get(`${api_endpoint}/api/team`);

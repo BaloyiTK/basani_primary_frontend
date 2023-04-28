@@ -5,7 +5,7 @@ import api_endpoint from "../../utils/config";
 const GalleryTable = () => {
   const [galleryItems, setGalleryItems] = useState([]);
 
-  console.log(galleryItems);
+
 
   // Fetch gallery items from the backend API on component mount
   useEffect(() => {
@@ -20,12 +20,14 @@ const GalleryTable = () => {
   }, []);
 
   // Delete a gallery item from the backend API
-  const deleteGalleryItem = (itemId) => {
-    axios
-      .delete(`${api_endpoint}/api/gallery/${itemId}`)
+  const deleteGalleryItem = async(item) => {
+    const imageId = item._id
+    await axios
+      .delete(`${api_endpoint}/api/gallery/${imageId}`)
       .then((response) => {
         // Remove the deleted item from the gallery items list
-        setGalleryItems(galleryItems.filter((item) => item._id !== itemId));
+        const updatedGallery = galleryItems.filter((item) => item._id !== imageId)
+        setGalleryItems(updatedGallery);
       })
       .catch((error) => {
         console.error(error);
@@ -73,7 +75,7 @@ const GalleryTable = () => {
         <td className="px-6 py-4 whitespace-nowrap">
           <div className="flex items-center">
             <button
-              onClick={() => deleteGalleryItem(item._id)}
+              onClick={() => deleteGalleryItem(item)}
               className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
             >
               Delete

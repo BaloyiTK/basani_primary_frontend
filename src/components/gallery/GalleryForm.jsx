@@ -31,7 +31,7 @@ const GalleryForm = () => {
           },
         }
       );
-      console.log(response);
+   
       // do something with response data
     } catch (error) {
       console.error(error);
@@ -68,7 +68,7 @@ const GalleryForm = () => {
           type="submit"
           className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Upload Image
+          Publish
         </button>
       </form>
     </div>

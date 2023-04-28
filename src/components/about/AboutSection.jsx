@@ -1,14 +1,14 @@
-import React from 'react';
-import AboutCard from './AboutCard';
+import React from "react";
+import AboutCard from "./AboutCard";
 
 const AboutSection = () => {
   return (
-    <div className="h-screen bg-gray-100 py-20 px-4 md:px-10 lg:px-20 xl:px-32">
+    <div className="about-section min-h-screen bg-gray-100 py-20 p-4 md:px-10 lg:px-20 xl:px-32">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+        <h2 className="text-4xl font-extrabold text-gray-900 text-center mt-8 mb-8">
           About Us
         </h2>
-        <div className="md:flex md:justify-center md:space-x-12">
+        <div className="md:flex md:justify-center md:space-x-12 ">
           <AboutCard
             imgSrc="/images/about-1.jpg"
             title="Our Mission"
@@ -24,6 +24,27 @@ const AboutSection = () => {
             title="Our Vision"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis ligula vel lorem varius lacinia."
           />
+        </div>
+      </div>
+
+      {/* School History */}
+ 
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4">
+        <div className="px-4 py-2">
+          <h2 className="text-xl font-bold text-gray-800">School History</h2>
+        </div>
+        <div className="bg-gray-100 px-4 py-2">
+          <p className="text-gray-600 leading-7">
+            Our school has a rich history spanning over 100 years. It was
+            founded in 1920 by John Smith, a visionary educator who believed in
+            the power of education to transform lives.
+          </p>
+          <p className="text-gray-600 leading-7 mt-3">
+            Over the years, our school has grown and evolved, but our commitment
+            to academic excellence and community service remains as strong as
+            ever. We have produced many successful alumni who have gone on to
+            make a positive impact in various fields.
+          </p>
         </div>
       </div>
     </div>

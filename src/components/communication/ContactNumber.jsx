@@ -3,7 +3,6 @@ import axios from "axios";
 import api_endpoint from "../../utils/config";
 
 const grades = [
-  { value: "", label: "Select Grade" },
   { value: "1", label: "Grade 1" },
   { value: "2", label: "Grade 2" },
   { value: "3", label: "Grade 3" },
@@ -14,9 +13,11 @@ const grades = [
 
 const ContactNumber = () => {
   const [number, setNumber] = useState("");
-  const [selectedGrades, setSelectedGrades] = useState("");
+  const [selectedGrades, setSelectedGrades] = useState([]);
   const [message, setMessage] = useState();
   const [error, setError] = useState();
+
+  console.log(selectedGrades)
 
   console.log(error);
   console.log(message);
@@ -25,7 +26,7 @@ const ContactNumber = () => {
     await axios
       .post(`${api_endpoint}/api/contact/add`, {
         number: number,
-        grade: selectedGrades,
+        grades: selectedGrades,
       })
       .then((response) => {
         setMessage(response.data.message);
@@ -38,7 +39,14 @@ const ContactNumber = () => {
   };
 
   const handleGradeChange = (event) => {
-    setSelectedGrades(event.target.value);
+    const { value, checked } = event.target;
+    setSelectedGrades((prevSelectedGrades) => {
+      if (checked) {
+        return [...prevSelectedGrades, value];
+      } else {
+        return prevSelectedGrades.filter((grade) => grade !== value);
+      }
+    });
     setError("");
     setMessage("");
   };
@@ -51,7 +59,7 @@ const ContactNumber = () => {
         ) : (
           <p className="text-green-500">{message}</p>
         )}
-
+  
         <h1 className="text-2xl font-bold mb-4">Add Contact number</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -74,23 +82,19 @@ const ContactNumber = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="grade" className="block font-medium mb-2">
-              Grade Level
-            </label>
-            <select
-              id="grade"
-              name="grade"
-              value={selectedGrades}
-              onChange={handleGradeChange}
-              className=" border-gray-300 rounded-lg p-2"
-              required
-            >
-              {grades.map((grade) => (
-                <option key={grade.value} value={grade.value}>
-                  {grade.label}
-                </option>
-              ))}
-            </select>
+            <label className="block font-medium mb-2">Grade Level</label>
+            {grades.map((grade) => (
+              <label key={grade.value} className="inline-flex items-center">
+                <input
+                  type="checkbox"
+                  value={grade.value}
+                  checked={selectedGrades.includes(grade.value)}
+                  onChange={handleGradeChange}
+                  className="form-checkbox h-5 w-5 text-purple-600 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+                />
+                <span className="ml-2">{grade.label}</span>
+              </label>
+            ))}
           </div>
           <div className="flex justify-center">
             <button
@@ -104,6 +108,7 @@ const ContactNumber = () => {
       </div>
     </div>
   );
+  
 };
 
 export default ContactNumber;

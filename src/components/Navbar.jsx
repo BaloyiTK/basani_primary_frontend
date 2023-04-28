@@ -121,11 +121,11 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="teachers"
+                  to="team"
                   className={`text-black-500 font-bold no-underline mr-4 ${isActive(
-                    "/teachers"
+                    "/team"
                   )}hover:text-gray-300 `}
-                  onClick={() => handleClick("/teachers")}
+                  onClick={() => handleClick("/team")}
                 >
                   Our Team
                 </Link>
@@ -158,15 +158,7 @@ const Navbar = () => {
                           Uniform
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to="/vacancies"
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                          onClick={() => handleClick("/vacancies")}
-                        >
-                          Vacancies
-                        </Link>
-                      </li>
+                   
                     </ul>
                   )}
                 </div>

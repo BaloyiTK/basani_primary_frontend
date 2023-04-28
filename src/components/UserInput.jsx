@@ -4,10 +4,6 @@ import { FaKey, FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom"
 
-
-
-
-
 export const Username = ({ value, onChange, required }) => (
   <div className="relative">
     <FaUserCircle className="absolute left-4 bottom-1 top-1/2 transform -translate-y-1/2 text-gray-400" />

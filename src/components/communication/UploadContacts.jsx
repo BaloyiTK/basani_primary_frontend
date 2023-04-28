@@ -16,10 +16,10 @@ const UploadContacts = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
     const reader = new FileReader();
     reader.onload = handleFileRead;
     reader.readAsArrayBuffer(file);
+
   };
 
   const handleFileRead = async (event) => {
@@ -29,21 +29,17 @@ const UploadContacts = () => {
     const sheet = workbook.Sheets[sheetName];
     const data = XLSX.utils.sheet_to_json(sheet);
 
-    console.log(error)
-    
-console.log(message)
+    console.log("data" + data)
 
     await axios
       .post(`${api_endpoint}/api/contact/upload`, data)
       .then((response) => {
-        setMessage(response.data)
+        setMessage(response.data);
         console.log(response.data); // handle successful response
-      
       })
       .catch((error) => {
-        setError(error.response.data.message)
+        setError(error.response.data.message);
         console.error(error); // handle error
-        
       });
   };
 

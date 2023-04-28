@@ -13,13 +13,23 @@ import { useNavigate } from "react-router-dom";
 import api_endpoint from "../utils/config";
 import UserForm from "./users/UserForm";
 import UserTable from "./users/UserTable";
+import UniformForm from "./uniform/UniformForm";
+import UniformTable from "./uniform/UniformTable";
+import AnnouncementsTable from "./announcement/AnnouncementsTable";
+import AnnouncementForm from "./announcement/AnnouncementForm";
+import ProgramForm from "./programs/ProgramForm";
+import ProgramTable from "./programs/ProgramTable";
+import Settings from "./Settings";
 axios.defaults.withCredentials = true;
 
 const AdminDashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState("dashboard");
   const [showEventForm, setShowEventForm] = useState(false);
   const [showTeamForm, setShowTeamForm] = useState(false);
+  const [showProgramForm, setShowProgramForm] = useState(false);
   const [showUserForm, setShowUserForm] = useState(false);
+  const [showAnnouncementForm, setShowAnnouncementForm] = useState(false);
+  const [showUniformForm, setShowUniformForm] = useState(false);
   const [showGalleryForm, setShowGalleryForm] = useState(false);
   const [username, setUsername] = useState();
   const dispatch = useDispatch();
@@ -44,6 +54,9 @@ const AdminDashboard = () => {
     setShowTeamForm(false);
     setShowGalleryForm(false);
     setShowUserForm(false);
+    setShowUniformForm(false);
+    setShowAnnouncementForm(false);
+    setShowProgramForm(false);
   };
 
   const handleToggleEventForm = () => {
@@ -59,9 +72,26 @@ const AdminDashboard = () => {
   const handleToggleUserForm = () => {
     setShowUserForm(!showUserForm);
   };
+  const handleToggleUniformForm = () => {
+    setShowUniformForm(!showUniformForm);
+  };
+  const handleToggleAnnouncementForm = () => {
+    setShowAnnouncementForm(!showAnnouncementForm);
+  };
+  const handleToggleProgramForm = () => {
+    setShowProgramForm(!showProgramForm);
+  };
 
   const renderTable = () => {
-    if (showEventForm || showTeamForm || showGalleryForm || showUserForm) {
+    if (
+      showEventForm ||
+      showTeamForm ||
+      showGalleryForm ||
+      showUserForm ||
+      showUniformForm ||
+      showAnnouncementForm ||
+      showProgramForm
+    ) {
       return null;
     }
 
@@ -76,8 +106,16 @@ const AdminDashboard = () => {
         return <GalleryTable />;
       case "users":
         return <UserTable />;
-        case "dashboard":
-          return <UserTable />;
+      case "dashboard":
+        return;
+      case "uniform":
+        return <UniformTable />;
+      case "announcements":
+        return <AnnouncementsTable />;
+        case "programs":
+          return <ProgramTable />;
+          case "settings":
+            return <Settings/>;
       // Add other cases for other tables here
       default:
         return null;
@@ -129,15 +167,21 @@ const AdminDashboard = () => {
           </ul>
         </div>
         <div className="md:col-span-4 flex-grow p-8 bg-slate-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Welcome back, {username}
-          </h2>
-          <p className="text-gray-700 mb-8">
-            Here's a quick summary of your school's performance.
-          </p>
+          {selectedCategory === "dashboard" ? (
+            <dir>
+              {" "}
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Welcome back, {username}
+              </h2>
+              <p className="text-gray-700 mb-8">
+                Here's a quick summary of your school's performance.
+              </p>
+            </dir>
+          ) : null}
+
           <div className="mt-4">
             {selectedCategory !== "communication" &&
-              selectedCategory !== "dashboard" && (
+              selectedCategory !== "dashboard" &&     selectedCategory !== "settings"  && (
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200"
                   onClick={() => {
@@ -149,6 +193,12 @@ const AdminDashboard = () => {
                       handleToggleGalleryForm();
                     } else if (selectedCategory === "users") {
                       handleToggleUserForm();
+                    } else if (selectedCategory === "uniform") {
+                      handleToggleUniformForm();
+                    } else if (selectedCategory === "announcements") {
+                      handleToggleAnnouncementForm();
+                    }else if (selectedCategory === "programs") {
+                      handleToggleProgramForm();
                     }
                     setSelectedCategory(selectedCategory);
                   }}
@@ -156,7 +206,9 @@ const AdminDashboard = () => {
                   {showEventForm ||
                   showTeamForm ||
                   showGalleryForm ||
-                  showUserForm
+                  showUserForm ||
+                  showUniformForm ||
+                  showAnnouncementForm
                     ? `Show ${selectedCategory}`
                     : `Add ${selectedCategory}`}
                 </button>
@@ -168,6 +220,11 @@ const AdminDashboard = () => {
             {showTeamForm && <TeamForm className="w-1/2 mx-auto" />}
             {showGalleryForm && <GalleryFrom className="w-1/2 mx-auto" />}
             {showUserForm && <UserForm className="w-1/2 mx-auto" />}
+            {showUniformForm && <UniformForm className="w-1/2 mx-auto" />}
+            {showProgramForm && <ProgramForm className="w-1/2 mx-auto" />}
+            {showAnnouncementForm && (
+              <AnnouncementForm className="w-1/2 mx-auto" />
+            )}
           </div>
         </div>
       </div>

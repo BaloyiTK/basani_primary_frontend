@@ -6,7 +6,6 @@ const UserTable = () => {
   // Define the initial state for the user data
   const [users, setUsers] = useState([]);
 
-  console.log(users)
 
   // Fetch the user data from the server
   const fetchUsers = async () => {
@@ -44,13 +43,13 @@ const UserTable = () => {
           <th className="px-4 py-2">Actions</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className=''>
         {users  && users.map((user) => (
-          <tr key={user._id} className="border-b border-gray-400">
+          <tr key={user._id} className="border-b border-gray-400 ">
             <td className="px-4 py-2">{user.username}</td>
             <td className="px-4 py-2">{user.email}</td>
 
-            <td className="px-4 py-2"><img src={user.photo} alt={user.username}/></td>
+            <td className="px-4 py-2"><img className='w-16 h-16' src={user.photo} alt={user.username}/></td>
             <td className="px-4 py-2">
               <button
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"

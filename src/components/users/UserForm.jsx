@@ -18,7 +18,7 @@ const UserForm = () => {
 
     try {
       const res = await axios.post(`${api_endpoint}/api/users`, newUser);
-      console.log(res.data);
+
     } catch (err) {
       console.error(err);
     }
