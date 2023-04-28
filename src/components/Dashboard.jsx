@@ -11,31 +11,31 @@ import { authActions } from "../store";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import api_endpoint from "../utils/config";
+import UserForm from "./users/UserForm";
+import UserTable from "./users/UserTable";
 axios.defaults.withCredentials = true;
-  
-
 
 const AdminDashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState("dashboard");
   const [showEventForm, setShowEventForm] = useState(false);
   const [showTeamForm, setShowTeamForm] = useState(false);
+  const [showUserForm, setShowUserForm] = useState(false);
   const [showGalleryForm, setShowGalleryForm] = useState(false);
   const [username, setUsername] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
   const categories = [
     { label: "Dashboard", value: "dashboard" },
     { label: "Communication", value: "communication" },
     { label: "Team", value: "team" },
     { label: "Events", value: "events" },
+    { label: "Users", value: "users" },
     { label: "Announcements", value: "announcements" },
     { label: "Gallery", value: "gallery" },
     { label: "Programs", value: "programs" },
     { label: "Uniform", value: "uniform" },
     { label: "Settings", value: "settings" },
-    { label: "Users", value: "users" },
   ];
 
   const handleCategoryClick = (value) => {
@@ -43,6 +43,7 @@ const AdminDashboard = () => {
     setShowEventForm(false);
     setShowTeamForm(false);
     setShowGalleryForm(false);
+    setShowUserForm(false);
   };
 
   const handleToggleEventForm = () => {
@@ -55,9 +56,12 @@ const AdminDashboard = () => {
   const handleToggleGalleryForm = () => {
     setShowGalleryForm(!showGalleryForm);
   };
+  const handleToggleUserForm = () => {
+    setShowUserForm(!showUserForm);
+  };
 
   const renderTable = () => {
-    if (showEventForm || showTeamForm || showGalleryForm) {
+    if (showEventForm || showTeamForm || showGalleryForm || showUserForm) {
       return null;
     }
 
@@ -70,6 +74,10 @@ const AdminDashboard = () => {
         return <TeamTable />;
       case "gallery":
         return <GalleryTable />;
+      case "users":
+        return <UserTable />;
+        case "dashboard":
+          return <UserTable />;
       // Add other cases for other tables here
       default:
         return null;
@@ -84,15 +92,15 @@ const AdminDashboard = () => {
         });
         setUsername(response.data.username);
         dispatch(authActions.login());
-      } catch (error) {      
+      } catch (error) {
         dispatch(authActions.logout());
-        console.error(error);  
-         navigate("/login");
+        console.error(error);
+        navigate("/login");
       }
     };
 
     fetchUser();
-  }, [dispatch,navigate]);
+  }, [dispatch, navigate]);
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -139,11 +147,16 @@ const AdminDashboard = () => {
                       handleToggleTeamForm();
                     } else if (selectedCategory === "gallery") {
                       handleToggleGalleryForm();
+                    } else if (selectedCategory === "users") {
+                      handleToggleUserForm();
                     }
                     setSelectedCategory(selectedCategory);
                   }}
                 >
-                  {showEventForm || showTeamForm || showGalleryForm
+                  {showEventForm ||
+                  showTeamForm ||
+                  showGalleryForm ||
+                  showUserForm
                     ? `Show ${selectedCategory}`
                     : `Add ${selectedCategory}`}
                 </button>
@@ -154,6 +167,7 @@ const AdminDashboard = () => {
             {showEventForm && <EventForm className="w-1/2 mx-auto" />}
             {showTeamForm && <TeamForm className="w-1/2 mx-auto" />}
             {showGalleryForm && <GalleryFrom className="w-1/2 mx-auto" />}
+            {showUserForm && <UserForm className="w-1/2 mx-auto" />}
           </div>
         </div>
       </div>
