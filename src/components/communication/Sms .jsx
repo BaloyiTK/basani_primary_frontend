@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import UploadContacts from "./UploadContacts";
 import ContactNumber from "./ContactNumber";
-import api_endpoint from "../../utils/config";
+import api_endpoint from "../../utils/config"
 
 const grades = [
   { value: "R", name: "Grade R" },
@@ -15,7 +15,7 @@ const grades = [
   { value: "7", name: "Grade 7" },
   { value: "Teachers", name: "Teachers" },
   { value: "SGB", name: "SGB" },
-  { value: "Other stuff members", name: "Other stuff members" },
+  { value: "Other", name: "Other stuff members" },
 ];
 
 const SmsForm = () => {
@@ -65,7 +65,7 @@ const SmsForm = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-8 min-h-screen p-8">
+    <div className="grid grid-cols-2 gap-8 min-h-screen ">
       <div>
         <div className="mb-8">
           <ContactNumber />
@@ -77,7 +77,7 @@ const SmsForm = () => {
       <div>
       {error && <p className="text-red-500">{error}</p>}
         {resMessage && <p className="text-green-500">{resMessage}</p>}
-      <div className="rounded-lg p-2 shadow-md">
+      <div className="rounded-lg p-8 shadow-md">
 
 
         <h1 className="text-2xl font-bold mb-4">SMS</h1>

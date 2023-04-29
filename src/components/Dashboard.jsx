@@ -112,10 +112,10 @@ const AdminDashboard = () => {
         return <UniformTable />;
       case "announcements":
         return <AnnouncementsTable />;
-        case "programs":
-          return <ProgramTable />;
-          case "settings":
-            return <Settings/>;
+      case "programs":
+        return <ProgramTable />;
+      case "settings":
+        return <Settings />;
       // Add other cases for other tables here
       default:
         return null;
@@ -181,7 +181,8 @@ const AdminDashboard = () => {
 
           <div className="mt-4">
             {selectedCategory !== "communication" &&
-              selectedCategory !== "dashboard" &&     selectedCategory !== "settings"  && (
+              selectedCategory !== "dashboard" &&
+              selectedCategory !== "settings" && (
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200"
                   onClick={() => {
@@ -197,7 +198,7 @@ const AdminDashboard = () => {
                       handleToggleUniformForm();
                     } else if (selectedCategory === "announcements") {
                       handleToggleAnnouncementForm();
-                    }else if (selectedCategory === "programs") {
+                    } else if (selectedCategory === "programs") {
                       handleToggleProgramForm();
                     }
                     setSelectedCategory(selectedCategory);
@@ -231,5 +232,6 @@ const AdminDashboard = () => {
     </div>
   );
 };
+
 
 export default AdminDashboard;

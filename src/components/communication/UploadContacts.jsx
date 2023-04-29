@@ -5,8 +5,8 @@ import api_endpoint from "../../utils/config";
 
 const UploadContacts = () => {
   const [file, setFile] = useState(null);
-  const [error, setError] = useState();
-  const [message, setMessage] = useState();
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -14,12 +14,11 @@ const UploadContacts = () => {
     setMessage("");
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     const reader = new FileReader();
     reader.onload = handleFileRead;
     reader.readAsArrayBuffer(file);
-
   };
 
   const handleFileRead = async (event) => {
@@ -27,40 +26,44 @@ const UploadContacts = () => {
     const workbook = XLSX.read(content, { type: "array" });
     const sheetName = workbook.SheetNames[0];
     const sheet = workbook.Sheets[sheetName];
-    const data = XLSX.utils.sheet_to_json(sheet);
+    const data = XLSX.utils.sheet_to_json(sheet, { defval: "", raw: true });
+    console.log(data)
 
-    console.log("data" + data)
-
-    await axios
-      .post(`${api_endpoint}/api/contact/upload`, data)
-      .then((response) => {
-        setMessage(response.data);
-        console.log(response.data); // handle successful response
-      })
-      .catch((error) => {
-        setError(error.response.data.message);
-        console.error(error); // handle error
-      });
+    try {
+      const response = await axios.post(
+        `${api_endpoint}/api/contact/upload`,
+        data
+      );
+      setMessage(response.data);
+      console.log(response.data); // handle successful response
+    } catch (error) {
+      setError(error.response.data.message);
+      console.error(error); // handle error
+    }
   };
 
   return (
-    <div className="flex justify-center items-center  shadow-md">
-      <form onSubmit={handleFormSubmit} className="rounded-lg">
+    <div className="mx-auto  shadow-lg rounded-lg overflow-hidden">
+      <div className="px-4">
+        <h1 className="text-gray-900 font-bold text-2xl">Upload Contacts</h1>
+        <p className="text-gray-600 mt-1">
+          Please select an .xlsx file to upload.
+        </p>
+      </div>
+      <form onSubmit={handleFormSubmit} className="px-4 ">
         <div className="mb-4">
-          <label
-            className=" flex justify-center items-center text-gray-700 font-bold m-10 "
-            htmlFor="file"
-          >
-            Upload Contacts
-          </label>
           <input
-            className="shadow bg-white appearance-none border rounded w-2/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="file"
             name="file"
             onChange={handleFileChange}
             accept=".xlsx"
             required
           />
+          {/* {error && <p className="text-red-500 text-xs italic mt-2">{error}</p>}
+          {message && (
+            <p className="text-green-500 text-xs italic mt-2">{message}</p>
+          )} */}
         </div>
         <button
           type="submit"

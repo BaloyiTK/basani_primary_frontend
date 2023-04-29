@@ -26,11 +26,11 @@ const Login = () => {
       });
   };
 
-  return (
 
+  return (
     <div className="bg-gray-100 min-h-screen py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-500 shadow-lg transform skew-y-0 rotate-6 sm:rotate-12 sm:rounded-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-gray-500 shadow-lg transform skew-y-0 rotate-6 sm:rotate-12 sm:rounded-3xl"></div>
         <div className="relative px-4 py-10 bg-gradient-to-r from-gray-300 to-gray-200 shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
@@ -83,11 +83,34 @@ const Login = () => {
                 </Link>
               </div>
             </form>
+            <div className="text-center">
+              <p className="text-gray-600 text-sm">
+                Don't have an account?{" "}
+                <Link
+                  to="/register"
+                  className="font-bold text-blue-500 hover:text-blue-800"
+                >
+                  Register here.
+                </Link>
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="text-gray-600 text-sm">
+                Want to go back to the website?{" "}
+                <Link
+                  to="/"
+                  className="font-bold text-blue-500 hover:text-blue-800"
+                >
+                  Visit our website.
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
+  
 };
 
 export default Login;
