@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
+import Spinner from "../Spinner";
 
 const EventsTable = () => {
   const [events, setEvents] = useState([]);
+  const [loading, setloading] = useState(true)
 
   useEffect(() => {
     const fetchEvents = async () => {
       const response = await axios.get(`${api_endpoint}/api/event`);
       setEvents(response.data.event);
+      setloading(false)
     };
     fetchEvents();
   }, []);
@@ -30,7 +33,7 @@ const EventsTable = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">School Events</h1>
+      {loading ? <div><Spinner/></div> : <div>  <h1 className="text-2xl font-bold mb-4">School Events</h1>
       <table className="border-collapse w-full">
         <thead>
           <tr className="bg-gray-200 text-gray-600 border-b border-gray-300">
@@ -86,7 +89,8 @@ const EventsTable = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table></div>}
+    
     </div>
   );
 };

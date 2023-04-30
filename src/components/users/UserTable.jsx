@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import api_endpoint from '../../utils/config';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import api_endpoint from "../../utils/config";
+import Spinner from "../Spinner";
 
 const UserTable = () => {
   // Define the initial state for the user data
   const [users, setUsers] = useState([]);
-
+  const [loading, setloading] = useState(true);
 
   // Fetch the user data from the server
   const fetchUsers = async () => {
     try {
       const res = await axios.get(`${api_endpoint}/api/users`);
       setUsers(res.data.users);
+      setloading(false);
     } catch (err) {
       console.error(err);
     }
@@ -23,10 +25,11 @@ const UserTable = () => {
   }, []);
 
   // Handle delete user event
-  const handleDeleteUser = async (id) => {
+  const handleDeleteUser = async (user) => {
+    const userId = user._id;
     try {
-      await axios.delete(`/users/${id}`);
-      fetchUsers();
+      await axios.delete(`/users/${userId}`);
+      setUsers(users.filter(u => u._id !== userId)); // filter out the user with the specified userId
     } catch (err) {
       console.error(err);
     }
@@ -34,34 +37,40 @@ const UserTable = () => {
 
   // Render the table
   return (
-    <table className="w-full table-auto border-collapse border border-gray-400">
-      <thead>
-        <tr className="bg-gray-200">
-          <th className="px-4 py-2">Username</th>
-          <th className="px-4 py-2">Email</th>
-          <th className="px-4 py-2">Photo</th>
-          <th className="px-4 py-2">Actions</th>
-        </tr>
-      </thead>
-      <tbody className=''>
-        {users  && users.map((user) => (
-          <tr key={user._id} className="border-b border-gray-400 ">
-            <td className="px-4 py-2">{user.username}</td>
-            <td className="px-4 py-2">{user.email}</td>
-
-            <td className="px-4 py-2"><img className='w-16 h-16' src={user.photo} alt={user.username}/></td>
-            <td className="px-4 py-2">
-              <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
-                onClick={() => handleDeleteUser(user._id)}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        ))} 
-      </tbody>
-    </table>
+    <div>
+      {loading ? (
+        <div>
+          <Spinner />
+        </div>
+      ) : (
+        <div>
+          <table className="w-full table-fixed bg-gray-100 rounded-lg shadow-md">
+            <thead>
+              <tr className="bg-maroon-800 text-gray-200">
+                <th className="w-1/4 px-4 py-2 text-left font-bold border-r border-gray-300">Username</th>
+                <th className="w-1/4 px-4 py-2 text-left font-bold border-r border-gray-300">Email</th>
+                <th className="w-1/4 px-4 py-2 text-left font-bold border-r border-gray-300">Photo</th>
+                <th className="w-1/4 px-4 py-2 text-left font-bold">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users && users.map((user) => (
+                <tr key={user._id} className="bg-white border-b border-gray-200">
+                  <td className="w-1/4 px-4 py-2 border-r border-gray-200">{user.username}</td>
+                  <td className="w-1/4 px-4 py-2 border-r border-gray-200">{user.email}</td>
+                  <td className="w-1/4 px-4 py-2 border-r border-gray-200">
+                    <img className="w-12 h-12 rounded-full" src={user.photo} alt={user.username} />
+                  </td>
+                  <td className="w-1/4 px-4 py-2">
+                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDeleteUser(user)}>Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
   );
 };
 

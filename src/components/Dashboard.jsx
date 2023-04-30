@@ -20,10 +20,12 @@ import AnnouncementForm from "./announcement/AnnouncementForm";
 import ProgramForm from "./programs/ProgramForm";
 import ProgramTable from "./programs/ProgramTable";
 import Settings from "./Settings";
+import Spinner from "./Spinner";
 axios.defaults.withCredentials = true;
 
 const AdminDashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState("dashboard");
+  const [loading, setloading] = useState(true);
   const [showEventForm, setShowEventForm] = useState(false);
   const [showTeamForm, setShowTeamForm] = useState(false);
   const [showProgramForm, setShowProgramForm] = useState(false);
@@ -130,6 +132,7 @@ const AdminDashboard = () => {
         });
         setUsername(response.data.username);
         dispatch(authActions.login());
+        setloading(false);
       } catch (error) {
         dispatch(authActions.logout());
         console.error(error);
@@ -141,97 +144,103 @@ const AdminDashboard = () => {
   }, [dispatch, navigate]);
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="grid grid-cols-1 md:grid-cols-5 h-full">
-        <div className="md:col-span-1 border-r border-gray-200 px-8 py-6 bg-maroon-900 t">
-          <h2 className="text-2xl font-bold text-gray-100 mb-4">
-            Admin Dashboard
-          </h2>
-          <ul className="list-none">
-            {categories.map((category) => (
-              <li className="mb-1 border-1 pb-1" key={category.value}>
-                <button
-                  className={`block py-2 px-4 text-gray-300 rounded-md transition duration-200 
+    <div className="bg-gray-100 min-h-full">
+      {loading ? (
+        <div className="h-screen flex justify-center items-center">
+          {" "}
+          <Spinner />
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-5 h-full">
+          <div className="md:col-span-1 border-r border-gray-200 px-8 py-6 bg-maroon-900 t">
+            <h2 className="text-2xl font-bold text-gray-100 mb-4">
+              Admin Dashboard
+            </h2>
+            <ul className="list-none">
+              {categories.map((category) => (
+                <li className="mb-1 border-1 pb-1" key={category.value}>
+                  <button
+                    className={`block py-2 px-4 text-gray-300 rounded-md transition duration-200 
           ${
             selectedCategory === category.value
               ? "bg-gray-200 text-gray-900"
               : "hover:bg-gray-200 hover:text-gray-900"
           }`}
-                  onClick={() => handleCategoryClick(category.value)}
-                >
-                  {category.label}
-                </button>
-                <hr className="my-2 border-0 border-t border-gray-600" />
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="md:col-span-4 flex-grow p-8 bg-slate-200">
-          {selectedCategory === "dashboard" ? (
-            <dir>
-              {" "}
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Welcome back, {username}
-              </h2>
-              <p className="text-gray-700 mb-8">
-                Here's a quick summary of your school's performance.
-              </p>
-            </dir>
-          ) : null}
+                    onClick={() => handleCategoryClick(category.value)}
+                  >
+                    {category.label}
+                  </button>
+                  <hr className="my-2 border-0 border-t border-gray-600" />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="md:col-span-4 flex-grow p-8 bg-slate-200">
+            {selectedCategory === "dashboard" ? (
+              <dir>
+                {" "}
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                  Welcome back, {username}
+                </h2>
+                <p className="text-gray-700 mb-8">
+                  Here's a quick summary of your school's performance.
+                </p>
+              </dir>
+            ) : null}
 
-          <div className="mt-4">
-            {selectedCategory !== "communication" &&
-              selectedCategory !== "dashboard" &&
-              selectedCategory !== "settings" && (
-                <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200"
-                  onClick={() => {
-                    if (selectedCategory === "events") {
-                      handleToggleEventForm();
-                    } else if (selectedCategory === "team") {
-                      handleToggleTeamForm();
-                    } else if (selectedCategory === "gallery") {
-                      handleToggleGalleryForm();
-                    } else if (selectedCategory === "users") {
-                      handleToggleUserForm();
-                    } else if (selectedCategory === "uniform") {
-                      handleToggleUniformForm();
-                    } else if (selectedCategory === "announcements") {
-                      handleToggleAnnouncementForm();
-                    } else if (selectedCategory === "programs") {
-                      handleToggleProgramForm();
-                    }
-                    setSelectedCategory(selectedCategory);
-                  }}
-                >
-                  {showEventForm ||
-                  showTeamForm ||
-                  showGalleryForm ||
-                  showUserForm ||
-                  showUniformForm ||
-                  showAnnouncementForm
-                    ? `Show ${selectedCategory}`
-                    : `Add ${selectedCategory}`}
-                </button>
+            <div className="mt-4">
+              {selectedCategory !== "communication" &&
+                selectedCategory !== "dashboard" &&
+                selectedCategory !== "settings" && (
+                  <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200"
+                    onClick={() => {
+                      if (selectedCategory === "events") {
+                        handleToggleEventForm();
+                      } else if (selectedCategory === "team") {
+                        handleToggleTeamForm();
+                      } else if (selectedCategory === "gallery") {
+                        handleToggleGalleryForm();
+                      } else if (selectedCategory === "users") {
+                        handleToggleUserForm();
+                      } else if (selectedCategory === "uniform") {
+                        handleToggleUniformForm();
+                      } else if (selectedCategory === "announcements") {
+                        handleToggleAnnouncementForm();
+                      } else if (selectedCategory === "programs") {
+                        handleToggleProgramForm();
+                      }
+                      setSelectedCategory(selectedCategory);
+                    }}
+                  >
+                    {showEventForm ||
+                    showTeamForm ||
+                    showGalleryForm ||
+                    showUserForm ||
+                    showUniformForm ||
+                    showAnnouncementForm
+                      ? `Show ${selectedCategory}`
+                      : `Add ${selectedCategory}`}
+                  </button>
+                )}
+            </div>
+            <div className="mt-8">
+              {renderTable()}
+              {showEventForm && <EventForm className="w-1/2 mx-auto" />}
+              {showTeamForm && <TeamForm className="w-1/2 mx-auto" />}
+              {showGalleryForm && <GalleryFrom className="w-1/2 mx-auto" />}
+              {showUserForm && <UserForm className="w-1/2 mx-auto" />}
+              {showUniformForm && <UniformForm className="w-1/2 mx-auto" />}
+              {showProgramForm && <ProgramForm className="w-1/2 mx-auto" />}
+              {showAnnouncementForm && (
+                <AnnouncementForm className="w-1/2 mx-auto" />
               )}
-          </div>
-          <div className="mt-8">
-            {renderTable()}
-            {showEventForm && <EventForm className="w-1/2 mx-auto" />}
-            {showTeamForm && <TeamForm className="w-1/2 mx-auto" />}
-            {showGalleryForm && <GalleryFrom className="w-1/2 mx-auto" />}
-            {showUserForm && <UserForm className="w-1/2 mx-auto" />}
-            {showUniformForm && <UniformForm className="w-1/2 mx-auto" />}
-            {showProgramForm && <ProgramForm className="w-1/2 mx-auto" />}
-            {showAnnouncementForm && (
-              <AnnouncementForm className="w-1/2 mx-auto" />
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
-
 
 export default AdminDashboard;

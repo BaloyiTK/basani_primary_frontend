@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
+import { useSelector } from "react-redux";
+import Spinner from "../Spinner";
 
 const Team = () => {
   const [members, setMembers] = useState([]);
   const [member, setMember] = useState([]);
+  const [loading, setloading] = useState(true)
 
   useEffect(() => {
     const fetchMembers = async () => {
       const response = await axios.get(`${api_endpoint}/api/team`);
       setMembers(response.data);
+      setloading(false)
     };
 
     const fetchMember = async () => {
@@ -17,6 +21,7 @@ const Team = () => {
         `${api_endpoint}/api/team/principal`
       );
       setMember(response.data);
+      setloading(false)
     };
 
     fetchMember();
@@ -25,7 +30,7 @@ const Team = () => {
 
   return (
     <div className="max-w-5xl mx-auto mt-10 bg-#713F12 p-5">
-      <h2 className="flex justify-center items-center pb-6 font-bold text-3xl">
+      {loading ? <div><Spinner/></div> : <div>  <h2 className="flex justify-center items-center pb-6 font-bold text-3xl">
         Meet our team
       </h2>
       <div className="text-center mb-6">
@@ -55,7 +60,8 @@ const Team = () => {
               </div>
             )
         )}
-      </div>
+      </div></div> }
+    
     </div>
   );
 };

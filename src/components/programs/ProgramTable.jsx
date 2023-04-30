@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
+import Spinner from "../Spinner";
 
 const ProgramTable = () => {
 	const [programs, setPrograms] = useState([]);
-
-	console.log(programs)
+	const [loading, setloading] = useState(true)
 
 	useEffect(() => {
 	  const fetchPrograms = async () => {
 		const response = await axios.get(`${api_endpoint}/api/program`);
 		setPrograms(response.data.programs);
-		console.log(response)
+		setloading(false)
+	
 	  };
 	  fetchPrograms();
 	}, []);
@@ -32,7 +33,8 @@ const ProgramTable = () => {
 	  
 	return (
 	  <div className="container mx-auto py-8">
-		<div className="overflow-x-auto">
+
+		{loading ? <div><Spinner/></div> : 	<div className="overflow-x-auto">
 		  <div className="w-full overflow-hidden rounded-lg shadow-xs">
 			<div className="w-full overflow-x-auto">
 			  <table className="w-full table-auto">
@@ -110,7 +112,8 @@ const ProgramTable = () => {
 			  </table>
 			</div>
 		  </div>
-		</div>
+		</div>}
+	
 	  </div>
 	);
 }
