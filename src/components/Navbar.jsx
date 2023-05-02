@@ -52,7 +52,7 @@ const Navbar = () => {
               <img
                 src="./LOGO3.png"
                 alt="Logo"
-                class="text-white bg-transparent"
+                class=" text-white bg-transparent   "
               />
             </Link>
             <span class="text-green-600 font-semibold">
@@ -61,7 +61,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div>
+        <div className="hidden md:block">
           <nav className="hi">
             <ul className="flex justify-between items-center">
               <li>

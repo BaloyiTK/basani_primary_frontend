@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
 
 body {
   margin: 0;
   padding: 0;
-  background-color:white;
-  font-family: 'Poppins', sans-serif; 
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
   /* font-family: 'Inter', sans-serif; */
 }
 
@@ -34,7 +39,7 @@ body {
 .about-section {
   padding: auto;
   height: auto;
-  background-image: url(../public/about.jpg);
+  /* background-image: url(../public/about.jpg); */
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -43,15 +48,8 @@ body {
 .gallery {
   padding: auto;
   height: auto;
-   background-image: url(../public/rm422-076-x.jpg);
- 
+  background-image: url(../public/rm422-076-x.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 
 }
-
-
-
-
-
-

@@ -8,11 +8,16 @@ import Gallery from "./gallery/Gallery";
 import Contact from "./communication/Contact";
 import Team from "./team/Team";
 import Events from "./events/Events";
+import AccountBalance from "./communication/AccountBalance";
+
 
 const Home = () => {
   return (
     
     <React.Fragment>
+ 
+  
+
       
       <HeroSection />
       <Events/>

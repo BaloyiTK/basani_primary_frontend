@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
-import { css } from "@emotion/react";
-import { ClipLoader } from "react-spinners";
 import Spinner from "../Spinner";
-
-
 
 const TeamTable = () => {
   const [team, setTeam] = useState([]);
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [editMode, setEditableMode] = useState(false);
 
   useEffect(() => {
     const fetchTeam = async () => {
       const response = await axios.get(`${api_endpoint}/api/team`);
-      setTeam(response.data);
-      setloading(false);
+      setTeam(
+        response.data.map((member) => ({
+          ...member,
+          isEditing: false, // add isEditing property to each member object
+        }))
+      );
+      setLoading(false);
     };
     fetchTeam();
   }, []);
@@ -34,13 +36,31 @@ const TeamTable = () => {
     }
   };
 
+  const handleEdit = async (member) => {
+    const memberId = member._id;
+    setEditableMode(true)
+
+    // try {
+    //   await axios.put(`${api_endpoint}/api/team/${memberId}`, member);
+    //   console.log(`Member with ID ${memberId} updated successfully`);
+
+    //   const updatedTeam = team.map((m) =>
+    //     m._id === memberId ? { ...member, isEditing: false } : m
+    //   );
+    //   setTeam(updatedTeam);
+    // } catch (error) {
+    //   console.error(error);
+    // }
+  };
+
+  const handleSave = async (member) => {}
+  const handleCancel = async (member) => {setEditableMode(false)}
+
+
   return (
     <div className="container mx-auto py-8">
       {loading ? (
-
-        <Spinner/>
-     
-  
+        <Spinner />
       ) : (
         <div className="overflow-x-auto">
           <div className="w-full overflow-hidden rounded-lg shadow-xs">
@@ -68,12 +88,12 @@ const TeamTable = () => {
                       <tr key={member._id} className="border-b border-gray-300">
                         <td className="px-4 py-3">
                           <div className="flex items-center">
-                            <div>
+                           
                               <p className="text-gray-900 font-bold">
                                 {member.name}
                               </p>
-                              <p className="text-gray-500">{member.email}</p>
-                            </div>
+                           
+                          
                           </div>
                         </td>
                         <td className="px-4 py-3 text-gray-500">
@@ -90,29 +110,46 @@ const TeamTable = () => {
                             </div>
                           </div>
                         </td>
-                        <td className="px-8 py-3">
-                          <div className="flex items-center">
-                            <button
-                              onClick={() => handleDelete(member)}
-                              className="text-red-600 hover:text-red-900"
-                            >
-                              <svg
-                                className="w-5 h-5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
+                        {editMode ?     
+                          <td className=" flex px-4 py-3">
+                            <div className="flex items-center px-2">
+                              <button
+                                onClick={() => handleSave(member)}
+                                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                               >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2"
-                                  d="M6 18L18 6M6 6l12 12"
-                                />
-                              </svg>
-                            </button>
-                          </div>
-                        </td>
+                                Save
+                              </button>
+                            </div>
+                            <div className="flex items-center">
+                              <button
+                                onClick={() => handleCancel(member)}
+                                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          </td> 
+                          :     
+                          <td className=" flex px-4 py-3">
+                            <div className="flex items-center px-2">
+                              <button
+                                onClick={() => handleDelete(member)}
+                                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                              >
+                                Delete
+                              </button>
+                            </div>
+                            <div className="flex items-center">
+                              <button
+                                onClick={() => handleEdit(member)}
+                                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                              >
+                                Edit
+                              </button>
+                            </div>
+                          </td> 
+                        }
+                    
                       </tr>
                     ))}
                 </tbody>
@@ -123,6 +160,8 @@ const TeamTable = () => {
       )}
     </div>
   );
+
+  
 };
 
 export default TeamTable;

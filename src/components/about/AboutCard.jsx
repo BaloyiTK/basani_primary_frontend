@@ -2,9 +2,9 @@ import React from 'react';
 
 const AboutCard = ({ imgSrc, title, description }) => {
   return (
-    <div className="mt-8 md:mt-0 text-white">
+    <div className="flex flex-col justify-center items-center w-[85%] p-2 mx-auto rounded-lg shadow-lg mt-8 md:mt-0 text-white">
       <img
-        className="h-64 w-64 object-cover rounded-lg shadow-lg"
+        className="h-64 w-64 object-cover"
         src={imgSrc}
         alt={title}
       />

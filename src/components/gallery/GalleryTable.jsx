@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
 import Spinner from "../Spinner";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const GalleryTable = () => {
   const [galleryItems, setGalleryItems] = useState([]);
   const [loading, setloading] = useState(true);
-
+  const [message, setMessage] = useState();
+  const [error, seterror] = useState();
   // Fetch gallery items from the backend API on component mount
+
+  console.log(message);
   useEffect(() => {
     axios
       .get(`${api_endpoint}/api/gallery`)
@@ -31,7 +35,7 @@ const GalleryTable = () => {
           (item) => item._id !== imageId
         );
         setGalleryItems(updatedGallery);
-        
+        setMessage(response.data.message);
       })
       .catch((error) => {
         console.error(error);
@@ -40,6 +44,11 @@ const GalleryTable = () => {
 
   return (
     <div className=" rounded-lg  overflow-x-auto=">
+      {message && (
+        <p className="flex items-center text-green-500">
+          <FaCheckCircle className=" pr-1" size={20} /> {message}
+        </p>
+      )}
       {loading ? (
         <div className="">
           <Spinner />
@@ -86,7 +95,9 @@ const GalleryTable = () => {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <button
-                        onClick={() => deleteGalleryItem(item)}
+                        onClick={() => {
+                          deleteGalleryItem(item);
+                        }}
                         className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                       >
                         Delete

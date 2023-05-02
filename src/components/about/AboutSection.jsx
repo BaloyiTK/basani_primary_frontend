@@ -10,17 +10,17 @@ const AboutSection = () => {
         </h2>
         <div className="md:flex md:justify-center md:space-x-12 ">
           <AboutCard
-            imgSrc="/images/about-1.jpg"
+            imgSrc="./Goal_Mission.jpg"
             title="Our Mission"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis ligula vel lorem varius lacinia."
           />
           <AboutCard
-            imgSrc="/images/about-2.jpg"
+            imgSrc="/values.jpg"
             title="Our Values"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis ligula vel lorem varius lacinia."
           />
           <AboutCard
-            imgSrc="/images/about-3.jpg"
+            imgSrc="/Vision.png"
             title="Our Vision"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis ligula vel lorem varius lacinia."
           />
@@ -29,11 +29,11 @@ const AboutSection = () => {
 
       {/* School History */}
  
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4">
-        <div className="px-4 py-2">
-          <h2 className="text-xl font-bold text-gray-800">School History</h2>
+      <div className=" w-[85%] p-2 bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
+        <div className=" py-2">
+          <h2 className="text-xl font-bold text-gray-800">Our History</h2>
         </div>
-        <div className="bg-gray-100 px-4 py-2">
+        <div className="bg-gray-100  py-2">
           <p className="text-gray-600 leading-7">
             Our school has a rich history spanning over 100 years. It was
             founded in 1920 by John Smith, a visionary educator who believed in

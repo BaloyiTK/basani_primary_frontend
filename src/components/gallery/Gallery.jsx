@@ -41,7 +41,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="gallery">
+    <div className="min-h-fit gallery md:h-screen">
       {loading ? (
         <div className="h-screen flex  justify-center items-center">
           <Spinner />
@@ -54,7 +54,7 @@ const Gallery = () => {
               Photo Gallery
             </h2>
           </div>
-          <div className="relative h-screen">
+          <div className="relative min-h-fit">
             <Transition
               show={true}
               enter="transition-opacity duration-1000"
@@ -65,7 +65,7 @@ const Gallery = () => {
               leaveTo="opacity-0"
             >
               <img
-                className="object-contain w-2/3 rounded-lg p-5 mx-auto shadow-md"
+                className="w-full object-contain rounded-lg p-5 mx-auto shadow-md md:w-2/3 h-full"
                 src={galleryItems[currentImageIndex]?.image}
                 alt={galleryItems[currentImageIndex]?.title}
               />

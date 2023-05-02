@@ -7,6 +7,7 @@ axios.defaults.withCredentials = true;
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState()
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -23,6 +24,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.error("Error:", error);
+        setError(error.response.data.message)
       });
   };
 
@@ -34,6 +36,9 @@ const Login = () => {
         <div className="relative px-4 py-10 bg-gradient-to-r from-gray-300 to-gray-200 shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
+
+              <p className="text-red-400 flex justify-center"> {error&&error}</p>
+            
               <h2 className="text-center text-3xl font-extrabold text-gray-800">
                 Admin Login
               </h2>
@@ -49,7 +54,11 @@ const Login = () => {
                   type="email"
                   placeholder="Email"
                   value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+                  onChange={(event) => 
+                    {setEmail(event.target.value)
+
+                      setError("")
+                    }}
                 />
               </div>
               <div className="flex flex-col">

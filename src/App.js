@@ -1,7 +1,6 @@
-import React from "react";
+
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
-import About from "./components/about/About";
 import Teachers from "./components/team/Team";
 import Contact from "./components/communication/Contact";
 import HomePage from "./components/Home";
@@ -15,17 +14,46 @@ import Login from "./components/users/Login";
 import ForgotPassword from "./components/users/ForgotPasswordFrom";
 import { ResetPassword } from "./components/users/ResetPassword";
 
+import React, { useState } from 'react';
+import Alert from './components/Alert';
+import AboutSection from "./components/about/AboutSection";
+
 function App() {
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleShowAlert = () => {
+    setShowAlert(true);
+  };
+
+  const handleDismissAlert = () => {
+    setShowAlert(false);
+  };
+
   return (
     <div className="">
       <React.Fragment>
+
+      {/* <div className="App">
+      <button onClick={handleShowAlert}>Show Alert</button>
+      {showAlert && (
+        <Alert
+          message="This is a warning message."
+          type="success"
+          dismiss={handleDismissAlert}
+        />
+      )}
+    </div> */}
+
+
+        
         <header className="">
           <Navbar />
         </header>
         <main className="container min-h-screen mx-auto">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<AboutSection />} />
             <Route path="/team" element={<Teachers />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/events" element={<Events />} />
