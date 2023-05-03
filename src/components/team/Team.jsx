@@ -13,7 +13,7 @@ const Team = () => {
     const fetchMembers = async () => {
       const response = await axios.get(`${api_endpoint}/api/team`);
       setMembers(response.data);
-      setloading(false)
+    
     };
 
     const fetchMember = async () => {
@@ -21,6 +21,10 @@ const Team = () => {
         `${api_endpoint}/api/team/principal`
       );
       setMember(response.data);
+      if (members) {
+        setloading(false)
+  
+      }
       setloading(false)
     };
 
