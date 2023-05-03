@@ -9,8 +9,6 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [resMessage, setResMessage] = useState("");
 
-  console.log(resMessage)
-
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
@@ -30,7 +28,7 @@ const Contact = () => {
 
   };
   return (
-    <div id="contact" className="grid m-5">
+    <div id="contact" className="grid mt-16 px-2">
       <div>
       <p className="text-green-600 flex justify-center">{resMessage}</p>
         <div

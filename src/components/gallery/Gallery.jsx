@@ -65,9 +65,9 @@ const Gallery = () => {
               leaveTo="opacity-0"
             >
               <img
-                className="w-full object-contain rounded-lg p-5 mx-auto shadow-md md:w-2/3 h-full"
+                className="w-full object-contain rounded-lg p-5 mx-auto shadow-md md:w-2/3 h-screen"
                 src={galleryItems[currentImageIndex]?.image}
-                alt={galleryItems[currentImageIndex]?.title}
+                alt={"Basani Primary School"}
               />
             </Transition>
             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-4 py-2 bg-gray-900 bg-opacity-75 text-white">

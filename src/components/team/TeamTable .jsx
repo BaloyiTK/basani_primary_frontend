@@ -158,7 +158,7 @@ const TeamTable = () => {
           </div>
         </div>
       )}
-    </div>
+    </div> 
   );
 
   
