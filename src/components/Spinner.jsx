@@ -3,7 +3,7 @@ import ReactLoading from "react-loading";
 
 const Spinner = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center h-screen">
       {" "}
       <ReactLoading
         type="spin"
