@@ -29,7 +29,7 @@ const Team = () => {
   }, []);
 
   return (
-    <div className="bg-gray-200 max-w-5xl mx-auto mt-10 bg-#713F12 p-5">
+    <div className="bg-gray-100 max-w-5xl mx-auto mt-10 bg-#713F12 p-5">
       {loading ? <div><Spinner/></div> : <div>  <h2 className="flex justify-center items-center pb-6 font-bold text-3xl">
         Meet our team
       </h2>
