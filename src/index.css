@@ -30,7 +30,7 @@ body {
 .announcement-section {
   padding: auto;
   height: auto;
-  background-image: url(../public/anoucement.jpg);
+  background-image: url(../public/anoucement.png);
   background-size: cover;
   background-repeat: no-repeat;
 
