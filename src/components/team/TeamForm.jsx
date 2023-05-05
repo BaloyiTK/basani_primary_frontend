@@ -10,8 +10,9 @@ const TeamForm = () => {
     photo: null,
   });
   const [message, setmessage] = useState();
-  // const [error, seterror] = useState();
+  const [error, seterror] = useState();
   const [uploading, setuploading] = useState();
+  const [addingMember, setaddingMember] = useState()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +37,8 @@ const TeamForm = () => {
           "Content-Type": "application/json",
         },
       });
-      setuploading(false);
+    
+      setaddingMember(false)
       document.getElementById("photo").value = ""; // reset the file input element
       setmessage(response.data.message);
     } catch (error) {
@@ -53,12 +55,13 @@ const TeamForm = () => {
       position: "",
       photo: null,
     });
-    setuploading(true);
+  
+    setaddingMember(true)
   };
 
   return (
     <div className="max-w-md mx-auto py-4 px-8 bg-white shadow-lg rounded-lg">
-      {uploading && (
+      {addingMember && (
         <div className="flex items-center justify-center">
           <svg
             className="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-500"

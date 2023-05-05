@@ -2,10 +2,13 @@ import api_endpoint from "../../utils/config";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Spinner from "../Spinner";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
-const UniformTable = ({ data, onDelete }) => {
+const UniformTable = () => {
   const [uniforms, setUniforms] = useState([]);
   const [loading, setloading] = useState(true);
+  const [message, setmessage] = useState();
+  const [error, seterror] = useState();
 
   useEffect(() => {
     const fetchUniforms = async () => {
@@ -28,14 +31,28 @@ const UniformTable = ({ data, onDelete }) => {
           (uniform) => uniform._id !== uniformId
         );
         setUniforms(updatedUniforms);
+        setmessage(response.data.message)
       }
     } catch (error) {
       console.log(error);
+      seterror(error.response.data.message)
     }
   };
 
   return (
     <div className=" rounded-md overflow-hidden">
+
+{error && (
+        <p className="flex items-center text-red-500">
+          <FaTimesCircle className=" pr-1" size={20} /> {"error"}
+        </p>
+      )}
+
+      {message && (
+        <p className="flex items-center text-green-500">
+          <FaCheckCircle className=" pr-1" size={20} /> {message}
+        </p>
+      )}
       {loading ? (
         <div>
           <Spinner />

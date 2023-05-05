@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const UniformForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     photo: "",
-  });
+  })
+
+  	
+  const [message, setmessage] = useState();
+  const [error, seterror] = useState();
 
 
 
@@ -39,6 +44,8 @@ const UniformForm = () => {
         }
       );
 
+	  setmessage(response.data.message)
+
       // do something with response data
     } catch (error) {
       console.error(error);
@@ -53,6 +60,18 @@ const UniformForm = () => {
 	
   return (
 	<div className="max-w-md mx-auto py-4 px-8 bg-white shadow-lg rounded-lg">
+
+{error && (
+        <p className="flex items-center text-red-500">
+          <FaTimesCircle className=" pr-1" size={20} /> {"error"}
+        </p>
+      )}
+
+      {message && (
+        <p className="flex items-center text-green-500">
+          <FaCheckCircle className=" pr-1" size={20} /> {message}
+        </p>
+      )}
 	  <h1 className="text-2xl font-bold mb-6">Add Team Member</h1>
 	  <form onSubmit={handleSubmit}>
 		<div className="mb-4">
