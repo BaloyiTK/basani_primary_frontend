@@ -84,6 +84,8 @@ const TeamForm = () => {
         </div>
       )}
 
+      <div>
+
       <p className="text-green-500">
         {" "}
         {message && (
@@ -93,6 +95,11 @@ const TeamForm = () => {
           </p>
         )}
       </p>
+
+
+      </div>
+
+  
 
       <h1 className="text-2xl font-bold mb-6 text-blue-500">Add Team Member</h1>
       <form onSubmit={handleSubmit}>

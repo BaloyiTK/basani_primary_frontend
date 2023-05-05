@@ -14,8 +14,6 @@ const EventForm = () => {
   const [message, setmessage] = useState();
   const [error, seterror] = useState();
 
-  console.log(error);
-  console.log(message);
 
   const submitData = async (Data) => {
     try {

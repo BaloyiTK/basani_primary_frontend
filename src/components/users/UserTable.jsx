@@ -9,7 +9,6 @@ const UserTable = () => {
   const [loading, setloading] = useState(true);
   const [message, setmessage] = useState();
 
-  console.log(message);
 
   // Fetch the user data from the server
   const fetchUsers = async () => {
@@ -34,7 +33,6 @@ const UserTable = () => {
     console.log(userId);
     try {
       const res = await axios.delete(`${api_endpoint}/api/users/${userId}`);
-      console.log(res.data.message);
       setmessage( res.data.message );
       setUsers(users.filter((u) => u._id !== userId)); // filter out the user with the specified userId
     } catch (err) {

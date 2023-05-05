@@ -11,7 +11,7 @@ const ProgramTable = () => {
   const [message, setmessage] = useState();
   const [error, seterror] = useState();
 
-  console.log(message && message);
+
 
   useEffect(() => {
     const fetchPrograms = async () => {

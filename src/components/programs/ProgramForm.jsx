@@ -44,8 +44,7 @@ const ProgramForm = () => {
 		  );
 
 		  setmessage(response.data.message)
-	
-		  console.log(response)
+
 		} catch (error) {
 		  console.error(error);
 		  seterror(error.response.data.message)

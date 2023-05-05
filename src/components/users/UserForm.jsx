@@ -12,9 +12,6 @@ const UserForm = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
-  console.log(error);
-  console.log(message);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));

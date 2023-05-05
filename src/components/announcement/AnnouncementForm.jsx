@@ -12,8 +12,6 @@ const AnnouncementForm = () => {
   const [message, setmessage] = useState()
   const [error, seterror] = useState()
 
-  console.log(message)
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((formData) => ({
