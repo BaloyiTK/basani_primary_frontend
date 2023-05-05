@@ -12,7 +12,7 @@ const HeroSection = () => {
     <div 
       className="relative h-screen flex items-center justify-center"
       style={{ 
-        backgroundImage: `url("basani12.png")`,
+        backgroundImage: `url("istockphoto-803149430-612x612.jpg")`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
