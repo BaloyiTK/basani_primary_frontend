@@ -50,7 +50,7 @@ const NavLinks = ({ setMenuOpen }) => {
   };
 
   return (
-    <ul className="absolute text-gray-200 mt-[6%] left-0 right-0 flex-col-1 justify-center items-center   bg-maroon-900 z-50 md:relative md:flex md:bg-white md:justify-between md:items-center md:mt-0 md:text-gray-900">
+    <ul className="absolute text-gray-200 mt-[7%] left-0 right-0 flex-col-1 justify-center items-center   bg-maroon-900 z-50 md:relative md:flex md:bg-white md:justify-between md:items-center md:mt-0 md:text-gray-900">
       {" "}
       <li>
         <Link
