@@ -15,7 +15,7 @@ const Announcements = () => {
 
   return (
     <section
-      className="announcement-section flex items-center justify-center"
+      className="announcement-section h-screen flex items-center justify-center"
       style={{
         backgroundImage: "url(/anoucement.jpg)",
         backgroundSize: "cover",

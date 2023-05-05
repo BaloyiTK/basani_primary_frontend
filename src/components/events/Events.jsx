@@ -19,8 +19,7 @@ const Events = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-maroon-900 to-yellow-100
-    to-gray-900 py-16">
+    <div className="min-h-screen ">
 
       
       {loading ? <div><Spinner/></div> :   <div className="max-w-screen-lg mx-auto">

@@ -14,11 +14,12 @@ const Home = () => {
     <React.Fragment>
       <HeroSection />
       <AboutSection />
+      <Team />
       <Events />
       <Announcements />
       <Gallery />
       <Contact />
-      <Team />
+     
       <FeaturedProgramsSection />
       <Admissions />
     </React.Fragment>
