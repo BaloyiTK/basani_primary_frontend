@@ -1,25 +1,47 @@
-import React, { useState } from 'react';
-import Montserrat from 'typeface-montserrat';
+import React, { useState, useRef, useEffect } from 'react';
 
 const HeroSection = () => {
-  const [hasError, setHasError] = useState(false);
+  const [bgImageLoaded, setBgImageLoaded] = useState(false);
+  const sectionRef = useRef(null);
 
-  const handleImageError = () => {
-    setHasError(true);
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        setBgImageLoaded(true);
+        observer.unobserve(sectionRef.current);
+      }
+    }, {
+      rootMargin: '0px',
+      threshold: 0.1
+    });
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const backgroundImage = bgImageLoaded ? "istockphoto-803149430-612x612.jpg" : "";
 
   return (
     <div 
       className="relative h-screen flex items-center justify-center"
       style={{ 
-        backgroundImage: `url("istockphoto-803149430-612x612.jpg")`,
+        backgroundImage: `url("${backgroundImage}")`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         objectFit: 'cover'
       }}
+      ref={sectionRef}
     >
-      {hasError && <p>There was an error loading the image.</p>}
+      
       <div 
         className="absolute inset-0 bg-gray-900 opacity-60 z-0"
         style={{ backdropFilter: "blur(10px)" }}
@@ -30,14 +52,10 @@ const HeroSection = () => {
         <button className="m-1 font-semibold bg-white text-gray-800 rounded-full py-3 px-8 mt-8 hover:text-white hover:bg-maroon-900">Learn More</button>
         <button className="m-1 font-semibold bg-white text-gray-800 rounded-full py-3 px-8 mt-8 hover:text-white hover:bg-maroon-900">Admissions</button>
       </div>
-      <img
-        src={`${process.env.PUBLIC_URL}/istockphoto-803149430-612x612.jpg`}
-        alt="School"
-        style={{ display: 'none' }}
-        onError={handleImageError}
-      />
+    
     </div>
   );
 };
 
 export default HeroSection;
+
