@@ -13,9 +13,9 @@ const Home = () => {
   return (
     <React.Fragment>
       <HeroSection />
+      <AboutSection />
       <Events />
       <Announcements />
-      <AboutSection />
       <Gallery />
       <Contact />
       <Team />

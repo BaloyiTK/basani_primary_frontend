@@ -31,7 +31,7 @@ const AboutSection = () => {
  
       <div className="  p-2 bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
         <div className=" py-2">
-          <h2 className="text-xl font-bold text-gray-800">Our History</h2>
+          <h2 className=" flex justify-center text-xl font-bold text-gray-800">Our History</h2>
         </div>
         <div className="bg-gray-100  py-2">
           <p className="text-gray-600 leading-7">
