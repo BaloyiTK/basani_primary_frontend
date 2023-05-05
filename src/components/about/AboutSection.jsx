@@ -29,7 +29,7 @@ const AboutSection = () => {
 
       {/* School History */}
  
-      <div className=" w-[85%] p-2 bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
+      <div className="  p-2 bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
         <div className=" py-2">
           <h2 className="text-xl font-bold text-gray-800">Our History</h2>
         </div>
