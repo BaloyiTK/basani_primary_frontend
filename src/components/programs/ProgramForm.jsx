@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import api_endpoint from '../../utils/config';
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const ProgramForm = () => {
 	const [formData, setFormData] = useState({
@@ -8,10 +9,15 @@ const ProgramForm = () => {
 		description: "",
 		photo: "",
 	  });
-	console.log(formData)
+	
+	  const [message, setmessage] = useState();
+	  const [error, seterror] = useState();
+
 	  const handleInputChange = (e) => {
 		const { name, value } = e.target;
 		setFormData({ ...formData, [name]: value });
+		seterror("")
+		setmessage("")
 	  };
 	
 	  const handlePhotoChange = (e) => {
@@ -36,10 +42,13 @@ const ProgramForm = () => {
 			  },
 			}
 		  );
+
+		  setmessage(response.data.message)
 	
 		  console.log(response)
 		} catch (error) {
 		  console.error(error);
+		  seterror(error.response.data.message)
 		}
 	  };
 	
@@ -47,10 +56,24 @@ const ProgramForm = () => {
 		e.preventDefault();
 	
 		submitData(formData);
+		seterror("")
+		setmessage("")
 	  };
 	
 	  return (
 		<div className="max-w-md mx-auto py-4 px-8 bg-white shadow-lg rounded-lg">
+
+{error && (
+        <p className="flex items-center text-red-500">
+          <FaTimesCircle className=" pr-1" size={20} /> {"error"}
+        </p>
+      )}
+
+      {message && (
+        <p className="flex items-center text-green-500">
+          <FaCheckCircle className=" pr-1" size={20} /> {message}
+        </p>
+      )}
 		  <h1 className="text-2xl font-bold mb-6">Add School Program</h1>
 		  <form onSubmit={handleSubmit}>
 			<div className="mb-4">

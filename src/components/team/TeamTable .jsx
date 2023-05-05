@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
 import Spinner from "../Spinner";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const TeamTable = () => {
   const [team, setTeam] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editMode, setEditableMode] = useState(false);
+
+  const [message, setmessage] = useState();
+  const [error, seterror] = useState();
 
   useEffect(() => {
     const fetchTeam = async () => {
@@ -26,8 +30,10 @@ const TeamTable = () => {
     const memberId = member._id;
 
     try {
-      await axios.delete(`${api_endpoint}/api/team/${memberId}`);
-      console.log(`Member with ID ${memberId} deleted successfully`);
+    const res =   await axios.delete(`${api_endpoint}/api/team/${memberId}`);
+
+    setmessage(res.data.message)
+   
 
       const updatedTeam = team.filter((m) => m._id !== memberId);
       setTeam(updatedTeam);
@@ -59,6 +65,18 @@ const TeamTable = () => {
 
   return (
     <div className="container mx-auto py-8">
+
+{error && (
+        <p className="flex items-center text-red-500">
+          <FaTimesCircle className=" pr-1" size={20} /> {error}
+        </p>
+      )}
+
+      {message && (
+        <p className="flex items-center text-green-500">
+          <FaCheckCircle className=" pr-1" size={20} /> {message}
+        </p>
+      )}
       {loading ? (
         <Spinner />
       ) : (

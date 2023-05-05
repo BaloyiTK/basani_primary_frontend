@@ -3,6 +3,7 @@ import axios from "axios";
 import UploadContacts from "./UploadContacts";
 import ContactNumber from "./ContactNumber";
 import api_endpoint from "../../utils/config"
+import AccountBalance from "./AccountBalance";
 
 const grades = [
   { value: "R", name: "Grade R" },
@@ -24,6 +25,7 @@ const SmsForm = () => {
   const [error, setError] = useState();
   const [selectedGrades, setSelectedGrades] = useState([]);
   const [sendToAll, setSendToAll] = useState(false);
+
 
   const handleGradeChange = (event) => {
     const gradeId = event.target.value;
@@ -53,8 +55,7 @@ const SmsForm = () => {
       })
       .then((response) => {
         setResMessage(response.data.message);
-        console.log(response.data);
-        // handle success response
+    
       })
       .catch((error) => {
         setError(error.response.data.message);
@@ -79,6 +80,7 @@ const SmsForm = () => {
         {resMessage && <p className="text-green-500">{resMessage}</p>}
         <div className="rounded-lg p-8 shadow-md">
           <h1 className="text-2xl font-bold mb-4">SMS</h1>
+          <AccountBalance />
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="message" className="block font-medium mb-2">

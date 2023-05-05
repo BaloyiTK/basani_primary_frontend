@@ -3,10 +3,15 @@ import moment from "moment";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
 import Spinner from "../Spinner";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const EventsTable = () => {
   const [events, setEvents] = useState([]);
   const [loading, setloading] = useState(true)
+  const [message, setmessage] = useState()
+
+
+  
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -19,13 +24,15 @@ const EventsTable = () => {
 
   const handleDelete = async (event) => {
     // handle delete functionality
-    console.log(`Deleting event ${event.title}`);
+   
     const updatedEvents = events.filter((e) => e._id !== event._id);
 
     setEvents(updatedEvents);
 
     try {
-      await axios.delete(`${api_endpoint}/api/event/${event._id}`);
+     const res =  await axios.delete(`${api_endpoint}/api/event/${event._id}`);
+     setmessage(res.data.message)
+     
     } catch (error) {
       console.error(error);
     }
@@ -33,7 +40,14 @@ const EventsTable = () => {
 
   return (
     <div>
+
+{message && (
+        <p className="flex items-center text-green-500">
+          <FaCheckCircle className=" pr-1" size={20} /> {message}
+        </p>
+      )}
       {loading ? <div><Spinner/></div> : <div>  <h1 className="text-2xl font-bold mb-4">School Events</h1>
+   
       <table className="border-collapse w-full">
         <thead>
           <tr className="bg-gray-200 text-gray-600 border-b border-gray-300">

@@ -10,10 +10,9 @@ const AccountBalance = () => {
     axios
       .get(`${api_endpoint}/api/balance`)
       .then((response) => {
-       // setBalance(response.data);
-
-       console.log(response.data)
+       
         setLoading(false);
+        setBalance(response.data.balance)
       })
       .catch((error) => {
         console.log(error.response.data.message);
@@ -26,7 +25,7 @@ const AccountBalance = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <p>Your SMS credits balance is: {11}</p>
+        <p>Your SMS credits balance is: {balance}</p>
       )}
     </div>
   );

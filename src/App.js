@@ -1,5 +1,5 @@
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/header/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Teachers from "./components/team/Team";
 import Contact from "./components/communication/Contact";
@@ -13,7 +13,6 @@ import Register from "./components/Register";
 import Login from "./components/users/Login";
 import ForgotPassword from "./components/users/ForgotPasswordFrom";
 import { ResetPassword } from "./components/users/ResetPassword";
-
 import React, { useState } from 'react';
 import Alert from './components/Alert';
 import AboutSection from "./components/about/AboutSection";

@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
 import Spinner from "../Spinner";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const AnnouncementsTable = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [loading, setloading] = useState(true);
+
+  const [message, setmessage] = useState();
+  const [error, seterror] = useState();
 
   useEffect(() => {
     const fetchAnnouncements = async () => {
@@ -23,14 +27,16 @@ const AnnouncementsTable = () => {
   const handleDelete = async (announcement) => {
     const announcementId = announcement._id;
     try {
-      await axios.delete(`${api_endpoint}/api/announcement/${announcementId}`);
+      const res = await axios.delete(
+        `${api_endpoint}/api/announcement/${announcementId}`
+      );
+      setmessage(res.data.message);
 
       const updatedAnnouncements = announcements.filter(
         (announcement) => announcement._id !== announcementId
       );
 
       setAnnouncements(updatedAnnouncements);
-      
     } catch (error) {
       console.log(error);
     }
@@ -38,13 +44,23 @@ const AnnouncementsTable = () => {
 
   return (
     <div className="p-6 ">
+      {error && (
+        <p className="flex items-center text-red-500">
+          <FaTimesCircle className=" pr-1" size={20} /> {error}
+        </p>
+      )}
+
+      {message && (
+        <p className="flex items-center text-green-500">
+          <FaCheckCircle className=" pr-1" size={20} /> {message}
+        </p>
+      )}
       {loading ? (
         <div>
           <Spinner />
         </div>
       ) : (
         <div className="bg-white shadow-md">
-       
           {announcements && announcements.length === 0 ? (
             <p>No announcements found.</p>
           ) : (

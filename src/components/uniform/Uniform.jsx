@@ -6,7 +6,7 @@ import Spinner from '../Spinner';
 
 const Uniform = () => {
   const [uniforms, setUniforms] = useState([]);
-  const shopAddress = '123 Main Street, Anytown USA';
+  const shopAddress = 'xxx xxxx Street, Chiawelo Soweto 1818';
   const [loading, setloading] = useState(true)
 
   useEffect(() => {

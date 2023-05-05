@@ -24,7 +24,7 @@ import Spinner from "./Spinner";
 axios.defaults.withCredentials = true;
 
 const AdminDashboard = () => {
-  const [selectedCategory, setSelectedCategory] = useState("dashboard");
+  const [selectedCategory, setSelectedCategory] = useState("communication");
   const [loading, setloading] = useState(true);
   const [showEventForm, setShowEventForm] = useState(false);
   const [showTeamForm, setShowTeamForm] = useState(false);

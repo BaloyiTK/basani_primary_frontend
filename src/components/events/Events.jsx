@@ -9,8 +9,6 @@ const Events = () => {
   const [events, setEvents] = useState([]);
   const [loading, setloading] = useState(true)
 
-  console.log(loading)
-
   useEffect(() => {
     const fetchEvents = async () => {
       const response = await axios.get(`${api_endpoint}/api/event`);

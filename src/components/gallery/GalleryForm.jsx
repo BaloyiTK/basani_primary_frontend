@@ -12,8 +12,6 @@ const GalleryForm = () => {
   const [error, seterror] = useState();
   const [uploading, setuploading] = useState();
 
-  console.log(error && error);
-
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();

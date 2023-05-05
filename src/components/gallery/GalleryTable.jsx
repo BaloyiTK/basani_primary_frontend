@@ -11,7 +11,6 @@ const GalleryTable = () => {
   const [error, seterror] = useState();
   // Fetch gallery items from the backend API on component mount
 
-  console.log(message);
   useEffect(() => {
     axios
       .get(`${api_endpoint}/api/gallery`)
