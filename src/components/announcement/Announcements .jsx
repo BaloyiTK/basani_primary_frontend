@@ -23,7 +23,7 @@ const Announcements = () => {
       }}
     >
       <div className="container mx-auto bg-white bg-opacity-75 px-8 py-12">
-        <h2 className="text-2xl font-bold mb-8">Announcements</h2>
+        <h2 className="flex justify-center text-3xl font-bold mb-8">Announcements</h2>
         <ul>
           {announcements &&
             announcements.map((announcement) => (

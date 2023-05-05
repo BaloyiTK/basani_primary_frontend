@@ -49,7 +49,7 @@ function App() {
         <header className="">
           <Navbar />
         </header>
-        <main className="container min-h-screen mx-auto">
+        <main className="container min-h-screen mx-auto ">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutSection />} />

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { useMediaQuery } from "react-responsive";
 
-const MoreDropdown = () => {
+const MoreDropdown = ({ setMenuOpen, isMobile }) => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -14,6 +15,9 @@ const MoreDropdown = () => {
       setDropdownVisible(!dropdownVisible);
     } else {
       setDropdownVisible(false);
+      if (isMobile) {
+        setMenuOpen(false);
+      }
     }
   };
 

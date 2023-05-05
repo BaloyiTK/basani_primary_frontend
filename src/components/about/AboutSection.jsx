@@ -5,7 +5,7 @@ const AboutSection = () => {
   return (
     <div className="about-section min-h-screen bg-gray-100 md:py-20 p-4 md:px-10 lg:px-20 xl:px-32">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-gray-900 text-center mt-8 mb-8">
+        <h2 className="text-3xl font-extrabold text-gray-900 text-center mt-8 mb-8">
           About Us
         </h2>
         <div className="md:flex md:justify-center md:space-x-12 ">

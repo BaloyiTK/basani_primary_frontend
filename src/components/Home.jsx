@@ -19,7 +19,6 @@ const Home = () => {
       <Announcements />
       <Gallery />
       <Contact />
-     
       <FeaturedProgramsSection />
       <Admissions />
     </React.Fragment>

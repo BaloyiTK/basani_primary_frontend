@@ -3,7 +3,7 @@ import React from 'react'
 const Admissions = () => {
   return (
     <div className="bg-white shadow-md rounded-lg px-8 py-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-2">Admissions</h2>
+      <h2 className="flex justify-center px-1 text-3xl font-bold text-gray-800 mb-2">Admissions</h2>
       <p className="text-gray-700 mb-4">We're delighted that you're interested in enrolling your child at our primary school. Our admissions process is designed to be as simple and straightforward as possible, and we're here to help you every step of the way.</p>
       <h3 className="text-lg font-bold text-gray-800 mb-2">Requirements</h3>
       <ul className="list-disc list-inside mb-4">

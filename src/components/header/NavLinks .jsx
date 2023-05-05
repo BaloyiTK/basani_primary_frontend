@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
 import MoreDropdown from "./MoreDropdown";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 
 const NavLinks = ({ setMenuOpen }) => {
   const location = useLocation();
@@ -18,8 +18,6 @@ const NavLinks = ({ setMenuOpen }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const handleClick = (path) => {
-  
-
     setActiveTab(path);
     if (path === "/more") {
       setDropdownVisible(!dropdownVisible);
@@ -37,6 +35,10 @@ const NavLinks = ({ setMenuOpen }) => {
       .then(() => {
         dispatch(authActions.logout());
         history("/login");
+
+        if (isMobile) {
+          setMenuOpen(false);
+        }
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -118,7 +120,7 @@ const NavLinks = ({ setMenuOpen }) => {
           Our Team
         </Link>
       </li>
-      <MoreDropdown />
+      <MoreDropdown setMenuOpen={setMenuOpen} isMobile={setMenuOpen} />
       {isLoggedIn && (
         <li>
           <Link

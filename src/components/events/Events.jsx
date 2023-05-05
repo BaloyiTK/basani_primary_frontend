@@ -19,11 +19,11 @@ const Events = () => {
   }, []);
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen mt-5">
 
       
       {loading ? <div><Spinner/></div> :   <div className="max-w-screen-lg mx-auto">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-8">
+        <h2 className="flex justify-center text-3xl font-semibold text-gray-800 mb-8">
           Upcoming Events
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 w-[95%] mx-auto md:grid-cols-3 gap-8">
