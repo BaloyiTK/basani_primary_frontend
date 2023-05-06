@@ -21,12 +21,14 @@ import ProgramForm from "./programs/ProgramForm";
 import ProgramTable from "./programs/ProgramTable";
 import Settings from "./Settings";
 import Spinner from "./Spinner";
+import StatsForm from "./StatsFrom";
 axios.defaults.withCredentials = true;
 
 const AdminDashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState("communication");
   const [loading, setloading] = useState(true);
   const [showEventForm, setShowEventForm] = useState(false);
+  const [showStatsForm, setShowStatsForm] = useState(false);
   const [showTeamForm, setShowTeamForm] = useState(false);
   const [showProgramForm, setShowProgramForm] = useState(false);
   const [showUserForm, setShowUserForm] = useState(false);
@@ -47,6 +49,7 @@ const AdminDashboard = () => {
     { label: "Gallery", value: "gallery" },
     { label: "Programs", value: "programs" },
     { label: "Uniform", value: "uniform" },
+    { label: "Statistics", value: "statistics" },
     { label: "Settings", value: "settings" },
   ];
 
@@ -59,10 +62,14 @@ const AdminDashboard = () => {
     setShowUniformForm(false);
     setShowAnnouncementForm(false);
     setShowProgramForm(false);
+    setShowStatsForm(false);
   };
 
   const handleToggleEventForm = () => {
     setShowEventForm(!showEventForm);
+  };
+  const handleToggleStatsForm = () => {
+    setShowStatsForm(!showStatsForm);
   };
 
   const handleToggleTeamForm = () => {
@@ -92,7 +99,8 @@ const AdminDashboard = () => {
       showUserForm ||
       showUniformForm ||
       showAnnouncementForm ||
-      showProgramForm
+      showProgramForm ||
+      showStatsForm
     ) {
       return null;
     }
@@ -118,6 +126,8 @@ const AdminDashboard = () => {
         return <ProgramTable />;
       case "settings":
         return <Settings />;
+      case "statistics":
+        return;
       // Add other cases for other tables here
       default:
         return null;
@@ -209,6 +219,8 @@ const AdminDashboard = () => {
                         handleToggleAnnouncementForm();
                       } else if (selectedCategory === "programs") {
                         handleToggleProgramForm();
+                      } else if (selectedCategory === "statistics") {
+                        handleToggleStatsForm("statistics");
                       }
                       setSelectedCategory(selectedCategory);
                     }}
@@ -218,7 +230,8 @@ const AdminDashboard = () => {
                     showGalleryForm ||
                     showUserForm ||
                     showUniformForm ||
-                    showAnnouncementForm
+                    showAnnouncementForm ||
+                    showStatsForm
                       ? `Show ${selectedCategory}`
                       : `Add ${selectedCategory}`}
                   </button>
@@ -235,6 +248,7 @@ const AdminDashboard = () => {
               {showAnnouncementForm && (
                 <AnnouncementForm className="w-1/2 mx-auto" />
               )}
+              {showStatsForm && <StatsForm className="w-1/2 mx-auto" />}
             </div>
           </div>
         </div>
