@@ -43,7 +43,7 @@ const Login = () => {
                 Admin Login
               </h2>
             </div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-10 py-10 w-full">
+            <form onSubmit={handleSubmit} className="w-[90%] flex flex-col gap-10 py-10 md:w-full">
               <div className="flex flex-col">
                 <label className="text-gray-700 font-bold mb-2" htmlFor="email">
                   Email
