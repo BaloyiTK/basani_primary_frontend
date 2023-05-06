@@ -66,7 +66,7 @@ const Gallery = () => {
             >
   <div class="flex items-center justify-center h-screen">
   <img
-    class="w-full h-4/5 object-cover rounded-lg p-2 shadow-md md:w-2/3"
+    class="w-full h-4/5 object-cover rounded-lg shadow-md md:w-2/3"
     src={galleryItems[currentImageIndex]?.image}
     alt="Basani Primary School"
     onLoad={() => {
