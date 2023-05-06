@@ -50,7 +50,7 @@ const Gallery = () => {
       ) : (
         <>
           <div>
-            <h2 className="flex justify-center items-center text-3xl font-bold text-gray-300 pt-4">
+            <h2 className="flex justify-center items-center text-3xl font-bold text-gray-200 pt-4">
               Photo Gallery
             </h2>
           </div>
