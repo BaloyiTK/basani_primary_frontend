@@ -18,6 +18,7 @@ const NavLinks = ({ setMenuOpen }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const handleClick = (path) => {
+
     setActiveTab(path);
     if (path === "/more") {
       setDropdownVisible(!dropdownVisible);
@@ -114,7 +115,7 @@ const NavLinks = ({ setMenuOpen }) => {
           to="team"
           className={` flex justify-center items-center p-5 md:p-0 text-black-500 font-bold no-underline mr-4 ${isActive(
             "/team"
-          )}hover:text-gray-300 `}
+          )} hover:text-gray-300 `}
           onClick={() => handleClick("/team")}
         >
           Our Team

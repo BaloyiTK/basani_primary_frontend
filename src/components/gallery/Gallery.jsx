@@ -7,18 +7,19 @@ import Spinner from "../Spinner";
 const Gallery = () => {
   const [galleryItems, setGalleryItems] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`${api_endpoint}/api/gallery`)
-      .then((response) => {
+    const fetchGalleryItems = async () => {
+      try {
+        const response = await axios.get(`${api_endpoint}/api/gallery`);
         setGalleryItems(response.data.gallery);
-        setloading(false);
-      })
-      .catch((error) => {
+        setLoading(false);
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+    fetchGalleryItems();
   }, []);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Gallery = () => {
       setCurrentImageIndex((currentImageIndex + 1) % galleryItems.length);
     }, 5000);
     return () => clearTimeout(timer);
-  }, [currentImageIndex, galleryItems]);
+  }, [currentImageIndex, galleryItems.length]);
 
   const handleNextImage = () => {
     setCurrentImageIndex(
@@ -43,14 +44,13 @@ const Gallery = () => {
   return (
     <div className="min-h-fit gallery md:h-screen">
       {loading ? (
-        <div className="h-screen flex  justify-center items-center">
+        <div className="h-screen flex justify-center items-center">
           <Spinner />
         </div>
       ) : (
-        <div>
-          {" "}
+        <>
           <div>
-            <h2 className=" flex justify-center items-center text-3xl font-bold text-gray-300 pt-4">
+            <h2 className="flex justify-center items-center text-3xl font-bold text-gray-300 pt-4">
               Photo Gallery
             </h2>
           </div>
@@ -65,9 +65,12 @@ const Gallery = () => {
               leaveTo="opacity-0"
             >
               <img
-                className="w-full object-contain rounded-lg p-5 mx-auto shadow-md md:w-2/3 h-screen"
+                className="w-full h-full  object-contain rounded-lg p-5 mx-auto shadow-md md:w-2/3 md:h-screen"
                 src={galleryItems[currentImageIndex]?.image}
-                alt={"Basani Primary School"}
+                alt="Basani Primary School"
+                onLoad={() => {
+                  setLoading(false);
+                }}
               />
             </Transition>
             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-4 py-2 bg-gray-900 bg-opacity-75 text-white">
@@ -112,7 +115,7 @@ const Gallery = () => {
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
