@@ -3,36 +3,31 @@ import { FaSearch } from 'react-icons/fa';
 import api_endpoint from '../../utils/config';
 import axios from 'axios';
 
-// const contacts = [
-//   { phone: '0812345678', grades: ['R', '1', '2'] },
-//   { phone: '0823456789', grades: ['3', '4'] },
-//   { phone: '0834567890', grades: ['5', '6', '7'] },
-//   { phone: '0845678901', grades: ['SGB', 'Teachers', 'Other'] },
-//   { phone: '0834567890', grades: ['5', '6', '7'] },
-//   { phone: '0834567890', grades: ['5', '6', '7'] },
-//   { phone: '0834567890', grades: ['5', '6', '7'] },
-//   { phone: '0834567890', grades: ['5', '6', '7'] },
-//   { phone: '0834567890', grades: ['5', '6', '7'] },
-
-// ];
-
-
-
 
 const getSmsGradeColor = (grade) => {
   switch (grade) {
-    case 'A+':
+    case 'R':
       return 'bg-green-500 text-white';
-    case 'A':
+    case '1':
       return 'bg-green-400 text-white';
-    case 'B+':
+    case '2':
       return 'bg-yellow-500 text-white';
-    case 'B':
+    case '3':
       return 'bg-yellow-400 text-gray-900';
-    case 'C+':
+    case '4':
       return 'bg-red-500 text-white';
-    case 'C':
+    case '5':
       return 'bg-red-400 text-white';
+      case '6':
+        return 'bg-maroon-400 text-white';
+        case '7':
+          return 'bg-red-400 text-white';
+          case 'SGB':
+            return 'bg-gray-400 text-white';
+            case 'Other':
+              return 'bg-red-400 text-white';
+              case 'Teachers':
+                return 'bg-pink-400 text-white';
     default:
       return 'bg-gray-400 text-white';
   }
@@ -77,7 +72,7 @@ const ContactList = () => {
             onChange={handleSearch}
           />
         </div>
-        <ul>
+        <ul className='w-80 max-h-screen overflow-y-scroll overflow-x-scroll'>
           {filteredContacts.map((contact, index) => (
             <li key={index} className="flex justify-between py-2 px-4">
               <span>{contact.number}</span>
