@@ -185,7 +185,7 @@ const AdminDashboard = () => {
               ))}
             </ul>
           </div>
-          <div className="md:col-span-4 flex-grow p-8 bg-slate-200">
+          <div className="md:col-span-4 flex-grow p-8 bg-slate-300">
             {selectedCategory === "dashboard" ? (
               <dir>
                 {" "}

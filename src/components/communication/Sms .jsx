@@ -66,26 +66,24 @@ const SmsForm = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 min-h-screen">
+    <div className="grid  grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 min-h-screen">
       <div className="flex flex-col justify-between">
         <div className="mb-8">
           <ContactNumber />
         </div>
-        <div>
+        {/* <div>
           <UploadContacts />
-        </div>
+        </div> */}
       </div>
-      <div>
+      <div className="bg-white rounded-lg">
         {error && <p className="text-red-500">{error}</p>}
         {resMessage && <p className="text-green-500">{resMessage}</p>}
-        <div className="rounded-lg p-8 shadow-md">
+        <div className="w-full p-2 rounded-lg shadow-md">
           <h1 className="text-2xl font-bold mb-4">SMS</h1>
           <AccountBalance />
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="w-full">
             <div className="mb-4">
-              <label htmlFor="message" className="block font-medium mb-2">
-                Message
-              </label>
+              
               <textarea
                 id="message"
                 name="message"
@@ -95,7 +93,7 @@ const SmsForm = () => {
                   setResMessage("");
                   setError("");
                 }}
-                className="w-full border-gray-300 rounded-lg p-2 shadow-md outline-none"
+                className="w-full border-gray-300 bg-gray-300 rounded-lg p-2 shadow-lg outline-none"
                 rows="5"
                 required
                 placeholder="Message..."

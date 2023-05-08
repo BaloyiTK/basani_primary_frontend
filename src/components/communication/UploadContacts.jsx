@@ -43,7 +43,7 @@ const UploadContacts = () => {
   };
 
   return (
-    <div className="mx-auto  shadow-lg rounded-lg overflow-hidden">
+    <div className="mx-auto p-4  rounded-lg overflow-hidden">
       <div className="px-4">
         <h1 className="text-gray-900 font-bold text-2xl">Upload Contacts</h1>
         <p className="text-gray-600 mt-1">
@@ -60,10 +60,7 @@ const UploadContacts = () => {
             accept=".xlsx"
             required
           />
-          {/* {error && <p className="text-red-500 text-xs italic mt-2">{error}</p>}
-          {message && (
-            <p className="text-green-500 text-xs italic mt-2">{message}</p>
-          )} */}
+    
         </div>
         <button
           type="submit"
