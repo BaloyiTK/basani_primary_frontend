@@ -30,7 +30,8 @@ const Uniform = () => {
       ) : (
         <div>
           {" "}
-          <h1 className="text-3xl font-bold mb-8">Official Uniform</h1>
+          <h1 className="flex justify-center  text-3xl font-bold mb-8">Official Uniform</h1>
+          <div className="p-[5%]">
           <p className="font-semibold">
             Shop Address :{<span className="font-normal">{shopAddress}</span>}
           </p>
@@ -41,6 +42,9 @@ const Uniform = () => {
             Contacts Number :
             {<span className="font-normal">{contactNumber}</span>}
           </p>
+
+          </div>
+         
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 shadow-md">
             {uniforms &&
               uniforms.map((uniform) => (
