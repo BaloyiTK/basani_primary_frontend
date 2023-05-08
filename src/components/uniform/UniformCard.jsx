@@ -2,7 +2,7 @@ import React from 'react';
 
 const UniformCard = ({ uniform }) => {
   return (
-    <div className="bg-yellow-100 rounded-lg overflow-hidden shadow-lg mb-2">
+    <div className="w-[90%] mx-auto bg-yellow-100 rounded-lg overflow-hidden shadow-lg mb-2">
       <img src={uniform.photo} alt={uniform.name} className="w-full h-64 object-cover" />
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-2">{uniform.name}</h2>
