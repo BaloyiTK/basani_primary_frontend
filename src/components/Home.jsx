@@ -9,6 +9,7 @@ import Contact from "./communication/Contact";
 import Team from "./team/Team";
 import Events from "./events/Events";
 import StatisticsSection from "./StatisticsSection ";
+import Uniform from "./uniform/Uniform";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Team />
       <Events />
       <Announcements />
+      <Uniform/>
       <Gallery />
       <Contact />
       <FeaturedProgramsSection />
