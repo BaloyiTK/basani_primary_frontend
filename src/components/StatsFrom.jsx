@@ -1,41 +1,43 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import api_endpoint from '../utils/config'
-import { Await } from 'react-router-dom'
+import React, { useState } from "react";
+import axios from "axios";
+import api_endpoint from "../utils/config";
 
 const StatsForm = () => {
   const [values, setValues] = useState({
-    numberOfLearners: '',
-    numberOfTeachers: ''
-  })
+    numberOfLearners: "",
+    numberOfTeachers: "",
+  });
 
-  const handleChange = event => {
-    const { name, value } = event.target
-    setValues({ ...values, [name]: value })
-  }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setValues({ ...values, [name]: value });
+  };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const handleSubmit = async event => {
-    event.preventDefault()
-
-  await  axios.post(`${api_endpoint}/api/statistics`, values)
+    await axios
+      .patch(`${api_endpoint}/api/statistics`, values)
       .then((res) => {
         // Handle success
-        console.log(res)
-        console.log('Form submitted successfully')
+        console.log(res);
+        console.log("Form submitted successfully");
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle error
-        console.error(error)
-      })
-  }
+        console.error(error);
+      });
+  };
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Statistics Form</h1>
+      <h1 className="text-2xl font-bold mb-4">Statistics</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="numberOfLearners">
+          <label
+            className="block text-gray-700 font-bold mb-2"
+            htmlFor="numberOfLearners"
+          >
             Number of Learners
           </label>
           <input
@@ -49,7 +51,10 @@ const StatsForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="numberOfTeachers">
+          <label
+            className="block text-gray-700 font-bold mb-2"
+            htmlFor="numberOfTeachers"
+          >
             Number of Teachers
           </label>
           <input
@@ -70,7 +75,7 @@ const StatsForm = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default StatsForm
+export default StatsForm;
