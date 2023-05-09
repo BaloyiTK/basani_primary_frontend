@@ -2,7 +2,7 @@ import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { FaKey, FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export const Username = ({ value, onChange, required }) => (
   <div className="relative">

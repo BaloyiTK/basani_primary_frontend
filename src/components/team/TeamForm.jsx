@@ -125,7 +125,7 @@ const TeamForm = () => {
             htmlFor="position"
             className="block text-gray-700 font-bold mb-2"
           >
-            Title
+            Position
           </label>
           <input
             type="text"

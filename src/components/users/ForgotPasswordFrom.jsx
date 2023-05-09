@@ -10,6 +10,10 @@ const ForgotPassword = () => {
     email: "",
   });
 
+  console.log(error)
+
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -34,23 +38,28 @@ const ForgotPassword = () => {
   };
 
   return (
-    <form
-      method="POST"
-      onSubmit={handleSubmit}
-      className="flex flex-col  mt-20 justify-center space-y-4 md:shadow-2xl w-1/2"
-    >
-      <p className="text-green-500">{message}</p>
+    <div className=" flex justify-center">
+      <form
+        method="POST"
+        onSubmit={handleSubmit}
+        className="flex flex-col p-4  mt-20 justify-center space-y-4 md:shadow-2xl"
+      >
 
-      <div className="bg-gray-800 h-10 flex items-center justify-center mb-10">
-        <h2 className=" flex justify-center m-20 font-bold text-white ">
-          Forgot Password
-        </h2>
-      </div>
+        {error.message &&  <p className="text-red-500">{error.message}</p>}
+        <p className="text-green-500">{message}</p>
+      
 
-      <Email value={inputData.email} onChange={handleInputChange} required />
+        <div className="bg-gray-800 h-10 flex items-center justify-center mb-10">
+          <h2 className=" flex justify-center m-20 font-bold text-white ">
+            Forgot Password
+          </h2>
+        </div>
 
-      <Submit value="Reset" bgColor="bg-green-600" className="m-10" />
-    </form>
+        <Email value={inputData.email} onChange={handleInputChange} required />
+
+        <Submit value="Reset" bgColor="bg-green-600" className="m-10 pb-10" />
+      </form>
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ const Events = () => {
   }, []);
 
   return (
-    <div className="min-h-screen mt-5">
+    <div className="min-h-screen mt-20">
 
       
       {loading ? <div><Spinner/></div> :   <div className="max-w-screen-lg mx-auto">
