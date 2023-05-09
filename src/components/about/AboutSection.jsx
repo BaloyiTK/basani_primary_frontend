@@ -11,19 +11,58 @@ const AboutSection = () => {
         <div className="md:flex md:justify-center md:space-x-12 ">
           <AboutCard
             imgSrc="./Goal_Mission.jpg"
-            title="Our Mission"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis ligula vel lorem varius lacinia."
+            title="Mission"
+            description="Our mission is to provide a safe, nurturing, and stimulating learning environment that enables each child to reach their full potential. We develop core academic skills and promote social, emotional, and physical development."
           />
           <AboutCard
             imgSrc="/values.jpg"
-            title="Our Values"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis ligula vel lorem varius lacinia."
+            title="Values"
+            description={
+              <ul>
+                <li>
+                  <span className="font-bold">Excellence</span> : Striving for
+                  excellence in everything they do, and encouraging students to
+                  do the same.
+                </li>
+                <li>
+                  <span className="font-bold">Respect</span> : Valuing respect
+                  for oneself, for others, and for the environment.
+                </li>
+                <li>
+                  <span></span> Integrity: Believing in honesty, integrity, and
+                  ethical behavior.
+                </li>
+                <li>
+                  <span className="font-bold">Inclusivity</span>: Valuing
+                  inclusivity and diversity, and promoting equity and inclusion.
+                </li>
+                <li>
+                  <span className="font-bold">Collaboration</span> : Believing
+                  in the power of collaboration and teamwork.
+                </li>
+                <li>
+                  <span className="font-bold"> Lifelong Learning</span>: Valuing
+                  lifelong learning and encouraging students to be curious and
+                  inquisitive.
+                </li>
+              </ul>
+            }
           />
-          <AboutCard
-            imgSrc="/Vision.png"
-            title="Our Vision"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis ligula vel lorem varius lacinia."
-          />
+
+<AboutCard
+  imgSrc="/Vision.png"
+  title="Vision"
+  description={
+    <ul>
+      <li><span className="font-bold text-3xl">.</span>To be a leading school in academic excellence, character development, and community engagement</li>
+      <li>.To empower learners to become lifelong learners capable of adapting to a rapidly changing world</li>
+      <li>.To create a learning environment that fosters creativity, critical thinking, and innovation</li>
+      <li>.To value diversity and promote inclusivity, where all students feel safe, respected, and supported</li>
+      <li>.To cultivate a culture of respect, responsibility, and ethical behavior among all members of the school community</li>
+    </ul>
+  }
+/>
+
         </div>
       </div>
 

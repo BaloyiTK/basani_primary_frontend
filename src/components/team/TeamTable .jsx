@@ -7,10 +7,10 @@ import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 const TeamTable = () => {
   const [team, setTeam] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [editMode, setEditableMode] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
-  const [message, setmessage] = useState();
-  const [error, seterror] = useState();
+  const [message, setMessage] = useState();
+  const [error, setError] = useState();
 
   useEffect(() => {
     const fetchTeam = async () => {
@@ -18,7 +18,7 @@ const TeamTable = () => {
       setTeam(
         response.data.map((member) => ({
           ...member,
-          isEditing: false, // add isEditing property to each member object
+          isEditing: false,
         }))
       );
       setLoading(false);
@@ -30,43 +30,43 @@ const TeamTable = () => {
     const memberId = member._id;
 
     try {
-    const res =   await axios.delete(`${api_endpoint}/api/team/${memberId}`);
+      const res = await axios.delete(`${api_endpoint}/api/team/${memberId}`);
 
-    setmessage(res.data.message)
-   
+      setMessage(res.data.message);
 
       const updatedTeam = team.filter((m) => m._id !== memberId);
       setTeam(updatedTeam);
     } catch (error) {
       console.error(error);
+      setError(error.message);
     }
   };
 
-  const handleEdit = async (member) => {
-    const memberId = member._id;
-    setEditableMode(true)
-
-    // try {
-    //   await axios.put(`${api_endpoint}/api/team/${memberId}`, member);
-    //   console.log(`Member with ID ${memberId} updated successfully`);
-
-    //   const updatedTeam = team.map((m) =>
-    //     m._id === memberId ? { ...member, isEditing: false } : m
-    //   );
-    //   setTeam(updatedTeam);
-    // } catch (error) {
-    //   console.error(error);
-    // }
+  const handleEdit = (member) => {
+    setEditMode(true);
+    const updatedTeam = team.map((m) =>
+      m._id === member._id ? { ...m, isEditing: true } : m
+    );
+    setTeam(updatedTeam);
   };
 
-  const handleSave = async (member) => {}
-  const handleCancel = async (member) => {setEditableMode(false)}
+  const handleEditChange = (event, memberId) => {
+    const updatedTeam = team.map((m) =>
+      m._id === memberId ? { ...m, [event.target.name]: event.target.value } : m
+    );
+    setTeam(updatedTeam);
+  };
 
+  const handleSave = async (member) => {
 
+  };
+
+  const handleCancel = (member) => {
+
+  };
   return (
     <div className="container mx-auto py-8">
-
-{error && (
+      {error && (
         <p className="flex items-center text-red-500">
           <FaTimesCircle className=" pr-1" size={20} /> {error}
         </p>
@@ -106,12 +106,9 @@ const TeamTable = () => {
                       <tr key={member._id} className="border-b border-gray-300">
                         <td className="px-4 py-3">
                           <div className="flex items-center">
-                           
-                              <p className="text-gray-900 font-bold">
-                                {member.name}
-                              </p>
-                           
-                          
+                            <p className="text-gray-900 font-bold">
+                              {member.name}
+                            </p>
                           </div>
                         </td>
                         <td className="px-4 py-3 text-gray-500">
@@ -128,7 +125,7 @@ const TeamTable = () => {
                             </div>
                           </div>
                         </td>
-                        {editMode ?     
+                        {editMode ? (
                           <td className=" flex px-4 py-3">
                             <div className="flex items-center px-2">
                               <button
@@ -146,8 +143,8 @@ const TeamTable = () => {
                                 Cancel
                               </button>
                             </div>
-                          </td> 
-                          :     
+                          </td>
+                        ) : (
                           <td className=" flex px-4 py-3">
                             <div className="flex items-center px-2">
                               <button
@@ -165,9 +162,8 @@ const TeamTable = () => {
                                 Edit
                               </button>
                             </div>
-                          </td> 
-                        }
-                    
+                          </td>
+                        )}
                       </tr>
                     ))}
                 </tbody>
@@ -176,10 +172,8 @@ const TeamTable = () => {
           </div>
         </div>
       )}
-    </div> 
+    </div>
   );
-
-  
 };
 
 export default TeamTable;

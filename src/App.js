@@ -12,7 +12,7 @@ import Register from "./components/Register";
 import Login from "./components/users/Login";
 import ForgotPassword from "./components/users/ForgotPasswordFrom";
 import { ResetPassword } from "./components/users/ResetPassword";
-import React, { useState } from "react";
+import React from "react";
 import AboutSection from "./components/about/AboutSection";
 import ScrollButton from "./components/ScrollButton";
 
@@ -25,7 +25,7 @@ function App() {
         <header className="">
           <Navbar />
         </header>
-        <main className="container min-h-screen mx-auto ">
+        <main className="min-h-screen mx-auto ">
           <Routes>
           <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutSection />} />

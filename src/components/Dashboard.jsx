@@ -22,6 +22,7 @@ import ProgramTable from "./programs/ProgramTable";
 import Settings from "./Settings";
 import Spinner from "./Spinner";
 import StatsForm from "./StatsFrom";
+import Table from "./team/Table";
 axios.defaults.withCredentials = true;
 
 const AdminDashboard = () => {
@@ -111,7 +112,7 @@ const AdminDashboard = () => {
       case "communication":
         return <Sms />;
       case "team":
-        return <TeamTable />;
+        return <Table />;
       case "gallery":
         return <GalleryTable />;
       case "users":
