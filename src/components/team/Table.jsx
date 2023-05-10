@@ -95,14 +95,14 @@ const Table = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-4 ">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-100 py-2 ">
+      <div className="max-w-4xl mx-auto px- sm: lg:">
         <h1 className="text-2xl font-bold text-gray-900 mb-4">
           Team Members
         </h1>
-        <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg w-full overflow-x-scroll h-screen overflow-y-scroll">
+        <div className="shadow overflow-hidden border-b border-gray-200  w-full overflow-x-scroll h-screen overflow-y-scroll">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-gray-500">
               <tr className="bg-gray-300 border-b border-gray-300">
                 <th
                   scope="col"
@@ -130,7 +130,7 @@ const Table = () => {
             <tbody className="bg-white divide-y divide-gray-200">
               {rows.map((row) => (
                 <tr className="hover:bg-zinc-300" key={row._id}>
-                  <td className="px- py-4 whitespace-nowrap border-b border-gray-300 hover:bg">
+                  <td className="px- py-4 whitespace-nowrap border-b border-gray-300 ">
                     {editingRow === row._id ? (
                       <input
                         type="text"
@@ -141,7 +141,7 @@ const Table = () => {
                     ) : (
                       <div className="flex items-center">
                         <div className="">
-                          <div className="text-sm font-medium text-gray-900">
+                          <div className="text-sm text-gray-900 font-bold">
                             {row.name}
                           </div>
                         </div>
@@ -159,7 +159,7 @@ const Table = () => {
                     ) : (
                       <div className="flex items-center">
                         <div className="">
-                          <div className="text-sm font-medium text-gray-900">
+                          <div className="text-sm font-medium text-gray-500">
                             {row.position}
                           </div>
                         </div>
