@@ -23,10 +23,11 @@ import Settings from "./Settings";
 import Spinner from "./Spinner";
 import StatsForm from "./StatsFrom";
 import Table from "./team/Table";
+import DashboardSummary from "./DashboardSummary";
 axios.defaults.withCredentials = true;
 
 const AdminDashboard = () => {
-  const [selectedCategory, setSelectedCategory] = useState("communication");
+  const [selectedCategory, setSelectedCategory] = useState("dashboard");
   const [loading, setloading] = useState(true);
   const [showEventForm, setShowEventForm] = useState(false);
   const [showStatsForm, setShowStatsForm] = useState(false);
@@ -118,7 +119,7 @@ const AdminDashboard = () => {
       case "users":
         return <UserTable />;
       case "dashboard":
-        return;
+        return <DashboardSummary/>;
       case "uniform":
         return <UniformTable />;
       case "announcements":
@@ -194,7 +195,7 @@ const AdminDashboard = () => {
                   Welcome back, {username}
                 </h2>
                 <p className="text-gray-700 mb-8">
-                  Here's a quick summary of your school's performance.
+                  Here's a quick summary of your school.
                 </p>
               </dir>
             ) : null}

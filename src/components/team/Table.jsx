@@ -96,7 +96,7 @@ const Table = () => {
 
   return (
     <div className="bg-gray-100 py-2 ">
-      <div className="max-w-4xl mx-auto">
+      <div className="md:max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold text-gray-900 mb-4">
           Team Members
         </h1>
@@ -106,13 +106,13 @@ const Table = () => {
               <tr className="bg-gray-300 border-b border-gray-300">
                 <th
                   scope="col"
-                  className="px- py-3 text-left text-md  text-gray-600 font-bold uppercase tracking-wider"
+                  className="px-1 py-3 text-left text-md  text-gray-600 font-bold uppercase tracking-wider"
                 >
                   Name
                 </th>
                 <th
                   scope="col"
-                  className="px- py-3 text-left text-md  text-gray-600 font-bold uppercase tracking-wider"
+                  className="px-1 py-3 text-left text-md  text-gray-600 font-bold uppercase tracking-wider"
                 >
                   Position
                 </th>
@@ -148,7 +148,7 @@ const Table = () => {
                       </div>
                     )}
                   </td>
-                  <td className="px- py-4 whitespace-nowrap border-b border-gray-300">
+                  <td className="px-1 py-4 whitespace-nowrap border-b border-gray-300">
                     {editingRow === row._id ? (
                       <input
                         type="text"
@@ -157,7 +157,7 @@ const Table = () => {
                         className="block w-full border-gray-300 bg-gray-300 shadow-lg focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                       />
                     ) : (
-                      <div className="flex items-center">
+                      <div className="flex items-center ">
                         <div className="">
                           <div className="text-sm font-medium text-gray-500">
                             {row.position}
@@ -166,7 +166,7 @@ const Table = () => {
                       </div>
                     )}
                   </td>
-                  <td className="px- py-4 whitespace-nowrap border-b border-gray-300 ">
+                  <td className="px-1 py-4 whitespace-nowrap border-b border-gray-300 ">
                     {editingRow === row._id ? (
                       <div>
                         <input

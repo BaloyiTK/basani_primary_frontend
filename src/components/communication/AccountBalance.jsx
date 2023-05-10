@@ -23,7 +23,7 @@ const AccountBalance = () => {
   return (
     <div>
       {loading ? (
-        <p>Loading...</p>
+        <p>Loading balance...</p>
       ) : (
         <p>Your SMS credits balance is: {balance}</p>
       )}
