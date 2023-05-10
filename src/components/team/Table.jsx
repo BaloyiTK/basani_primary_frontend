@@ -96,7 +96,7 @@ const Table = () => {
 
   return (
     <div className="bg-gray-100 py-2 ">
-      <div className="max-w-4xl mx-auto px- sm: lg:">
+      <div className="max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold text-gray-900 mb-4">
           Team Members
         </h1>
