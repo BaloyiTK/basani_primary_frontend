@@ -103,22 +103,22 @@ const Table = () => {
         <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg w-full overflow-x-scroll h-screen overflow-y-scroll">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
-              <tr className="font-bold">
+              <tr className="bg-gray-300 border-b border-gray-300">
                 <th
                   scope="col"
-                  className="px- py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  className="px- py-3 text-left text-md  text-gray-600 font-bold uppercase tracking-wider"
                 >
                   Name
                 </th>
                 <th
                   scope="col"
-                  className="px- py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  className="px- py-3 text-left text-md  text-gray-600 font-bold uppercase tracking-wider"
                 >
                   Position
                 </th>
                 <th
                   scope="col"
-                  className="px- py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  className="px- py-3 text-left text-md  text-gray-600 font-bold uppercase tracking-wider"
                 >
                   Image
                 </th>
@@ -129,8 +129,8 @@ const Table = () => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {rows.map((row) => (
-                <tr key={row._id}>
-                  <td className="px- py-4 whitespace-nowrap">
+                <tr className="hover:bg-zinc-300" key={row._id}>
+                  <td className="px- py-4 whitespace-nowrap border-b border-gray-300 hover:bg">
                     {editingRow === row._id ? (
                       <input
                         type="text"
@@ -148,7 +148,7 @@ const Table = () => {
                       </div>
                     )}
                   </td>
-                  <td className="px- py-4 whitespace-nowrap">
+                  <td className="px- py-4 whitespace-nowrap border-b border-gray-300">
                     {editingRow === row._id ? (
                       <input
                         type="text"
@@ -166,7 +166,7 @@ const Table = () => {
                       </div>
                     )}
                   </td>
-                  <td className="px- py-4 whitespace-nowrap">
+                  <td className="px- py-4 whitespace-nowrap border-b border-gray-300 ">
                     {editingRow === row._id ? (
                       <div>
                         <input
@@ -199,7 +199,7 @@ const Table = () => {
                       </div>
                     )}
                   </td>
-                  <td className="px- py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <td className="px- py-4 whitespace-nowrap text-right text-sm font-medium border-b border-gray-300">
                     <TableButtons
                       row={row}
                       editingRow={editingRow}
