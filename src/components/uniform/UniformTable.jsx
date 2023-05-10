@@ -40,66 +40,80 @@ const UniformTable = () => {
   };
 
   return (
-    <div className=" rounded-md overflow-hidden" id="uniform">
-
-{error && (
-        <p className="flex items-center text-red-500">
-          <FaTimesCircle className=" pr-1" size={20} /> {"error"}
-        </p>
-      )}
-
-      {message && (
-        <p className="flex items-center text-green-500">
-          <FaCheckCircle className=" pr-1" size={20} /> {message}
-        </p>
-      )}
-      {loading ? (
-        <div>
-          <Spinner />
-        </div>
-      ) : (
-        <table className="w-full bg-white shadow-md">
-          <thead>
-            <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-              <th className="py-3 px-6 text-left">Name</th>
-              <th className="py-3 px-6 text-left">Description</th>
-              <th className="py-3 px-6 text-left">Price</th>
-              <th className="py-3 px-6 text-left">Photo</th>
-              <th className="py-3 px-6 text-center">Action</th>
+    <div className="rounded-md overflow-x-scroll shadow-lg">
+    {error && (
+      <div className="flex items-center bg-red-100 text-red-500 px-4 py-3">
+        <FaTimesCircle className="mr-2" size={20} />
+        <span>{error}</span>
+      </div>
+    )}
+  
+    {message && (
+      <div className="flex items-center bg-green-100 text-green-500 px-4 py-3">
+        <FaCheckCircle className="mr-2" size={20} />
+        <span>{message}</span>
+      </div>
+    )}
+  
+    {loading ? (
+      <div className="flex justify-center items-center h-40">
+        <Spinner />
+      </div>
+    ) : (
+      <table className="w-full bg-white divide-y divide-gray-200">
+        <thead className="bg-gray-50">
+          <tr className="text-gray-600 text-sm font-medium">
+            <th scope="col" className="py-3 px-6 text-left">
+              Name
+            </th>
+            <th scope="col" className="py-3 px-6 text-left">
+              Description
+            </th>
+            <th scope="col" className="py-3 px-6 text-left">
+              Price
+            </th>
+            <th scope="col" className="py-3 px-6 text-left">
+              Photo
+            </th>
+            <th scope="col" className="py-3 px-6 text-center">
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200">
+          {uniforms.map((uniform) => (
+            <tr key={uniform.id} className="hover:bg-gray-50">
+              <td className="py-4 px-6 whitespace-nowrap">
+                {uniform.name}
+              </td>
+              <td className="py-4 px-6 whitespace-nowrap">
+                {uniform.description}
+              </td>
+              <td className="py-4 px-6 whitespace-nowrap">
+                {uniform.price}
+              </td>
+              <td className="py-4 px-6">
+                <img
+                  src={uniform.photo}
+                  alt={uniform.name}
+                  className="w-16 h-16 object-cover rounded-full"
+                />
+              </td>
+              <td className="py-4 px-6 text-center">
+                <button
+                  className="bg-red-500 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full"
+                  onClick={() => handleDeleteUniform(uniform)}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody className="text-gray-600 text-sm font-light">
-            {uniforms.map((uniform) => (
-              <tr
-                key={uniform.id}
-                className="border-b border-gray-200 hover:bg-gray-100"
-              >
-                <td className="py-3 px-6 text-left whitespace-nowrap">
-                  {uniform.name}
-                </td>
-                <td className="py-3 px-6 text-left">{uniform.description}</td>
-                <td className="py-3 px-6 text-left">{uniform.price}</td>
-                <td className="py-3 px-6 text-left">
-                  <img
-                    src={uniform.photo}
-                    alt={uniform.name}
-                    className="w-16 h-16"
-                  />
-                </td>
-                <td className="py-3 px-6 text-center">
-                  <button
-                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-                    onClick={() => handleDeleteUniform(uniform)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
+          ))}
+        </tbody>
+      </table>
+    )}
+  </div>
+  
   );
 };
 

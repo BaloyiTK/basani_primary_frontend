@@ -51,7 +51,7 @@ const AdminDashboard = () => {
     { label: "Programs", value: "programs" },
     { label: "Uniform", value: "uniform" },
     { label: "Statistics", value: "statistics" },
-    { label: "Settings", value: "settings" },
+
   ];
 
   const handleCategoryClick = (value) => {

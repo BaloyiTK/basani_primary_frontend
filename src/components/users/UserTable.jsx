@@ -42,70 +42,76 @@ const UserTable = () => {
 
   // Render the table
   return (
-    <div id="users">
-      {message && (
-        <p className="flex items-center text-green-500">
-          <FaCheckCircle className=" pr-1" size={20} /> {message}
-        </p>
-      )}
 
-      {loading ? (
-        <div>
-          <Spinner />
-        </div>
-      ) : (
-        <div>
-          <table className="w-full table-fixed bg-gray-100 rounded-lg shadow-md">
-            <thead>
-              <tr className="bg-maroon-800 text-gray-200">
-                <th className="w-1/4 px-4 py-2 text-left font-bold border-r border-gray-300">
-                  Username
-                </th>
-                <th className="w-1/4 px-4 py-2 text-left font-bold border-r border-gray-300">
-                  Email
-                </th>
-                <th className="w-1/4 px-4 py-2 text-left font-bold border-r border-gray-300">
-                  Photo
-                </th>
-                <th className="w-1/4 px-4 py-2 text-left font-bold">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users &&
-                users.map((user) => (
-                  <tr
-                    key={user._id}
-                    className="bg-white border-b border-gray-200"
-                  >
-                    <td className="w-1/4 px-4 py-2 border-r border-gray-200">
-                      {user.username}
-                    </td>
-                    <td className="w-1/4 px-4 py-2 border-r border-gray-200">
-                      {user.email}
-                    </td>
-                    <td className="w-1/4 px-4 py-2 border-r border-gray-200">
-                      <img
-                        className="w-12 h-12 rounded-full"
-                        src={user.photo}
-                        alt={user.username}
-                      />
-                    </td>
-                    <td className="w-1/4 px-4 py-2">
-                      <button
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                        onClick={() => handleDeleteUser(user)}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+    <div id="users" class="bg-white rounded-lg shadow overflow-hidden">
+ 
+  {message && (
+    <p class="bg-green-500 text-white py-2 px-4 flex items-center">
+      <svg class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      {message}
+    </p>
+  )}
+
+
+  {loading ? (
+    <div class="p-4">
+      <div class="animate-pulse h-8 w-1/2 bg-gray-300 rounded"></div>
     </div>
-  );
+  ) : (
+  
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+            <th class="py-3 px-6 text-left">Username</th>
+            <th class="py-3 px-6 text-left">Email</th>
+            <th class="py-3 px-6 text-left">Photo</th>
+            <th class="py-3 px-6 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600 text-sm font-light">
+          {users &&
+            users.map((user) => (
+              <tr key={user._id} class="border-b border-gray-200 hover:bg-gray-100">
+                <td class="py-3 px-6 text-left whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="mr-2">
+                      <div class="text-md font-medium text-gray-900">{user.username}</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-3 px-6 text-left whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="mr-2">
+                      <div class="text-md font-medium text-gray-900">{user.email}</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-3 px-6 text-left">
+                  <img src={user.photo} alt={user.username} class="h-10 w-10 rounded-full" />
+                </td>
+                <td class="py-3 px-6 text-center">
+                  <div class="flex justify-center items-center">
+                    <button onClick={() => handleDeleteUser(user)} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+</div>
+
+ 
+  
+  
+
+  )
 };
 
 export default UserTable;
