@@ -40,7 +40,7 @@ const UniformTable = () => {
   };
 
   return (
-    <div className=" rounded-md overflow-hidden">
+    <div className=" rounded-md overflow-hidden" id="uniform">
 
 {error && (
         <p className="flex items-center text-red-500">

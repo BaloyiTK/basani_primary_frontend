@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Events from "./components/events/Events";
 import Uniform from "./components/uniform/Uniform";
 import Gallery from "./components/gallery/Gallery";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
 import Register from "./components/Register";
 import Login from "./components/users/Login";
 import ForgotPassword from "./components/users/ForgotPasswordFrom";

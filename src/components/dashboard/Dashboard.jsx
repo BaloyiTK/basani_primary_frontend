@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from "react";
-import EventForm from "./events/EventForm ";
-import EventsTable from "./events/EventsTable ";
-import GalleryFrom from "./gallery/GalleryForm";
-import GalleryTable from "./gallery/GalleryTable";
-import Sms from "./communication/Sms ";
-import TeamForm from "./team/TeamForm";
-import TeamTable from "./team/TeamTable ";
+import EventForm from "../events/EventForm ";
+import EventsTable from "../events/EventsTable ";
+import GalleryFrom from "../gallery/GalleryForm";
+import GalleryTable from "../gallery/GalleryTable";
+import Sms from "../communication/Sms ";
+import TeamForm from "../team/TeamForm";
 import axios from "axios";
-import { authActions } from "../store";
+import { authActions } from "../../store";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import api_endpoint from "../utils/config";
-import UserForm from "./users/UserForm";
-import UserTable from "./users/UserTable";
-import UniformForm from "./uniform/UniformForm";
-import UniformTable from "./uniform/UniformTable";
-import AnnouncementsTable from "./announcement/AnnouncementsTable";
-import AnnouncementForm from "./announcement/AnnouncementForm";
-import ProgramForm from "./programs/ProgramForm";
-import ProgramTable from "./programs/ProgramTable";
-import Settings from "./Settings";
-import Spinner from "./Spinner";
-import StatsForm from "./StatsFrom";
-import Table from "./team/Table";
+import api_endpoint from "../../utils/config";
+import UserForm from "../users/UserForm";
+import UserTable from "../users/UserTable";
+import UniformForm from "../uniform/UniformForm";
+import UniformTable from "../uniform/UniformTable";
+import AnnouncementsTable from "../announcement/AnnouncementsTable";
+import AnnouncementForm from "../announcement/AnnouncementForm";
+import ProgramForm from "../programs/ProgramForm";
+import ProgramTable from "../programs/ProgramTable";
+import Settings from "../Settings";
+import Spinner from "../Spinner";
+import StatsForm from "../StatsFrom";
+import Table from "../team/Table";
 import DashboardSummary from "./DashboardSummary";
 axios.defaults.withCredentials = true;
 
@@ -109,26 +108,119 @@ const AdminDashboard = () => {
 
     switch (selectedCategory) {
       case "events":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const eventDiv = document.getElementById("events"); // replace "smsDiv" with the ID of your actual element
+            if (eventDiv) {
+              eventDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return <EventsTable />;
       case "communication":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("sms"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return <Sms />;
+
       case "team":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("team"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return <Table />;
+
       case "gallery":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("gallery"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return <GalleryTable />;
       case "users":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("users"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return <UserTable />;
       case "dashboard":
-        return <DashboardSummary/>;
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("dashboard"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
+        return <DashboardSummary />;
       case "uniform":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("uniform"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return <UniformTable />;
       case "announcements":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("announcements"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return <AnnouncementsTable />;
       case "programs":
+      case "announcements":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("programs"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return <ProgramTable />;
       case "settings":
         return <Settings />;
       case "statistics":
+        setTimeout(() => {
+          // check if screen width is less than 768 pixels
+          if (window.matchMedia("(max-width: 767px)").matches) {
+            const smsDiv = document.getElementById("statistics"); // replace "smsDiv" with the ID of your actual element
+            if (smsDiv) {
+              smsDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }, 100); // wait for 100 milliseconds before executing the code
         return;
       // Add other cases for other tables here
       default:
@@ -194,9 +286,7 @@ const AdminDashboard = () => {
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">
                   Welcome back, {username}
                 </h2>
-                <p className="text-gray-700 mb-8">
-                  Here's a quick summary of your school.
-                </p>
+                <p className="text-gray-700 mb-8">Here's a quick summary.</p>
               </dir>
             ) : null}
 

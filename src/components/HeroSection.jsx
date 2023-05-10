@@ -67,7 +67,8 @@ const HeroSection = () => {
           className="m-1 font-semibold bg-white text-gray-800 rounded-full py-3 px-8 mt-8 hover:text-white hover:bg-maroon-900"
           onClick={() => {
             const admissionsSection = document.getElementById("admissions");
-            admissionsSection.scrollIntoView({ behavior: "smooth" });
+            admissionsSection.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+            
           }}
         >
           Admissions

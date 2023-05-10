@@ -43,7 +43,7 @@ const AnnouncementsTable = () => {
   };
 
   return (
-    <div className="p-6 ">
+    <div className="p-6 " id="announcements">
       {error && (
         <p className="flex items-center text-red-500">
           <FaTimesCircle className=" pr-1" size={20} /> {error}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import TableButtons from "./TableButtons ";
 import api_endpoint from "../../utils/config";
 import axios from "axios";
@@ -9,7 +9,6 @@ const Table = () => {
   const [editedName, setEditedName] = useState("");
   const [editedPosition, seteditedPosition] = useState("");
   const [editedImage, setEditedImage] = useState(null);
-
 
   const handleEdit = (row) => {
     setEditingRow(row._id);
@@ -27,23 +26,31 @@ const Table = () => {
   const handleSave = async (row) => {
     const newRows = rows.map((r) => {
       if (r._id === row._id) {
-        return { ...r, name: editedName,position:editedPosition, photo: editedImage };
+        return {
+          ...r,
+          name: editedName,
+          position: editedPosition,
+          photo: editedImage,
+        };
       }
       return r;
     });
 
     await axios
-    .patch(`${api_endpoint}/api/team/${row._id}`, {name: editedName,position:editedPosition, photo: editedImage})
-    .then((res) => {
-      // Handle success
-      console.log(res);
-      console.log("Form submitted successfully");
-    })
-    .catch((error) => {
-      // Handle error
-      console.error(error);
-    });
-
+      .patch(`${api_endpoint}/api/team/${row._id}`, {
+        name: editedName,
+        position: editedPosition,
+        photo: editedImage,
+      })
+      .then((res) => {
+        // Handle success
+        console.log(res);
+        console.log("Form submitted successfully");
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
 
     setRows(newRows);
     setEditingRow(null);
@@ -59,14 +66,9 @@ const Table = () => {
 
     try {
       const res = await axios.delete(`${api_endpoint}/api/team/${memberId}`);
-
-     // setMessage(res.data.message);
-
-      const updatedTeam = row.filter((m) => m._id !== memberId);
-     // setTeam(updatedTeam);
     } catch (error) {
       console.error(error);
-    //  setError(error.message);
+      //  setError(error.message);
     }
   };
 
@@ -95,11 +97,9 @@ const Table = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-2 ">
+    <div className="bg-gray-100 py-2 " id="team">
       <div className="md:max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">
-          Team Members
-        </h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">Team Members</h1>
         <div className="shadow overflow-hidden border-b border-gray-200  w-full overflow-x-scroll h-screen overflow-y-scroll">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-500">
@@ -216,7 +216,7 @@ const Table = () => {
         </div>
       </div>
     </div>
-  ); 
+  );
 };
 
 export default Table;

@@ -11,7 +11,6 @@ const TeamForm = () => {
   });
   const [message, setmessage] = useState();
   const [error, seterror] = useState();
-  const [uploading, setuploading] = useState();
   const [addingMember, setaddingMember] = useState()
 
   const handleInputChange = (e) => {

@@ -7,7 +7,9 @@ import {
 } from "react-icons/fa";
 import { AiOutlineContacts, AiOutlinePicture } from "react-icons/ai";
 import { BiNews } from "react-icons/bi";
-import api_endpoint from "../utils/config";
+import { GrAnnounce } from "react-icons/gr";
+
+import api_endpoint from "../../utils/config";
 import axios from "axios";
 
 const DashboardSummary = () => {
@@ -79,22 +81,22 @@ const DashboardSummary = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center ">
+    <div className="flex flex-wrap justify-center " id="dashboard">
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
         <div className="bg-green-500 rounded-lg p-4 flex items-center">
           <div className="flex-shrink-0">
-            <FaUsers className="text-white" />
+            <FaUsers className="text-white text-2xl" />
           </div>
           <div className="ml-4">
             <p className="text-white font-bold">{numTeamMembers}</p>
-            <p className="text-white">Team Members</p>
+            <p className="text-white">Teachers</p>
           </div>
         </div>
       </div>
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
         <div className="bg-blue-500 rounded-lg p-4 flex items-center">
           <div className="flex-shrink-0">
-            <FaChalkboardTeacher className="text-white" />
+            <FaChalkboardTeacher className="text-white text-2xl" />
           </div>
           <div className="ml-4">
             <p className="text-white font-bold">{numLearners}</p>
@@ -105,7 +107,7 @@ const DashboardSummary = () => {
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
         <div className="bg-purple-500 rounded-lg p-4 flex items-center">
           <div className="flex-shrink-0">
-            <FaCalendarAlt className="text-white" />
+            <FaCalendarAlt className="text-white text-2xl" />
           </div>
           <div className="ml-4">
             <p className="text-white font-bold">{numEvents}</p>
@@ -116,7 +118,7 @@ const DashboardSummary = () => {
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
         <div className="bg-red-500 rounded-lg p-4 flex items-center">
           <div className="flex-shrink-0">
-            <FaSms className="text-white" />
+            <FaSms className="text-white text-2xl" />
           </div>
           <div className="ml-4">
             <p className="text-white font-bold">{numSmsLeft}</p>
@@ -127,7 +129,7 @@ const DashboardSummary = () => {
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
         <div className="bg-yellow-500 rounded-lg p-4 flex items-center">
           <div className="flex-shrink-0">
-            <AiOutlineContacts className="text-white" />
+            <AiOutlineContacts className="text-white text-2xl" />
           </div>
           <div className="ml-4">
             <p className="text-white font-bold">{numContacts}</p>
@@ -139,7 +141,7 @@ const DashboardSummary = () => {
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
         <div className="bg-zinc-500 rounded-lg p-4 flex items-center">
           <div className="flex-shrink-0">
-            <BiNews className="text-white" />
+            <BiNews className="text-white text-2xl" />
           </div>
           <div className="ml-4">
             <p className="text-white font-bold">{numAnnouncements}</p>
@@ -151,7 +153,7 @@ const DashboardSummary = () => {
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
         <div className="bg-pink-500 rounded-lg p-4 flex items-center">
           <div className="flex-shrink-0">
-            <AiOutlinePicture className="text-white" />
+            <AiOutlinePicture className="text-white text-2xl" />
           </div>
           <div className="ml-4">
             <p className="text-white font-bold">{numGalleryImages}</p>

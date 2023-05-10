@@ -66,7 +66,7 @@ const SmsForm = () => {
   };
 
   return (
-    <div className="grid  grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 min-h-screen">
+    <div className="grid  grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 min-h-screen" id="sms">
       <div className="flex flex-col justify-between">
         <div className="mb-8">
           <ContactNumber />

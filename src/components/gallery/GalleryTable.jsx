@@ -42,7 +42,7 @@ const GalleryTable = () => {
   };
 
   return (
-    <div className=" rounded-lg  overflow-x-auto=">
+    <div className=" rounded-lg  overflow-x-auto=" id="gallery">
       {message && (
         <p className="flex items-center text-green-500">
           <FaCheckCircle className=" pr-1" size={20} /> {message}

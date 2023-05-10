@@ -50,7 +50,7 @@ const EventsTable = () => {
   };
 
   return (
-    <div>
+    <div id="events">
       {message && (
         <p className="flex items-center text-green-500">
           <FaCheckCircle className=" pr-1" size={20} /> {message}

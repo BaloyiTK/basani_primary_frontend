@@ -48,7 +48,7 @@ const ProgramTable = () => {
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8" id="programs">
       {error && (
         <p className="flex items-center text-red-500">
           <FaTimesCircle className=" pr-1" size={20} /> {error}

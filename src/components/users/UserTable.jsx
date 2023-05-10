@@ -42,7 +42,7 @@ const UserTable = () => {
 
   // Render the table
   return (
-    <div>
+    <div id="users">
       {message && (
         <p className="flex items-center text-green-500">
           <FaCheckCircle className=" pr-1" size={20} /> {message}
