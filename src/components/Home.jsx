@@ -20,7 +20,7 @@ const Home = () => {
       <Team />
       <Events />
       <Announcements />
-      <Uniform/>
+      <Uniform />
       <Gallery />
       <Contact />
       <FeaturedProgramsSection />

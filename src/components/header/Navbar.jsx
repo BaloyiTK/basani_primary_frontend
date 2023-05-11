@@ -9,7 +9,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="bg-maroon flex items-center justify-center border-b-4 border-maroon-900">
+    <div className="flex items-center justify-center border-b-1 border-maroon-900">
       <div className="container w-[90%] h-[20%] flex items-center justify-between">
         <Logo />
 

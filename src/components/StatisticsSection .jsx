@@ -75,7 +75,7 @@ const StatisticsSection = () => {
 
   return (
     <section className="bg-blue-100 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[95%] mx-auto">
         <div className="md:mt-10 grid grid-cols-1 gap-5 md:gap-10 md:grid-cols-3">
           <div className="bg-white overflow-hidden shadow rounded-lg">
             <div className="px-4 py-5 sm:p-6">

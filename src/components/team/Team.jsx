@@ -28,7 +28,7 @@ const Team = () => {
   }, [membersData.member]);
 
   return (
-    <div className="bg-gray-100 max-w-5xl mx-auto mt-20 bg-#713F12">
+    <div className="bg-gray-100 w-[95%] mx-auto mt-20 bg-#713F12">
       {loading ? (
         <Spinner />
       ) : (

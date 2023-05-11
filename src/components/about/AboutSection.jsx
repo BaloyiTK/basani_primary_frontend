@@ -3,7 +3,7 @@ import AboutCard from "./AboutCard";
 
 const AboutSection = () => {
   return (
-    <div className="about-section min-h-screen bg-gray-100 md:py-20 p-4 md:px-10 lg:px-20 xl:px-32">
+    <div className="container w-full mx-auto min-h-screen bg-gray-100 ">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-extrabold text-gray-900 text-center mt-8 mb-8">
           About Us
@@ -14,6 +14,7 @@ const AboutSection = () => {
             title="Mission"
             description="Our mission is to provide a safe, nurturing, and stimulating learning environment that enables each child to reach their full potential. We develop core academic skills and promote social, emotional, and physical development."
           />
+          <ul></ul>
           <AboutCard
             imgSrc="/values.jpg"
             title="Values"

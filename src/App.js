@@ -16,18 +16,16 @@ import React from "react";
 import AboutSection from "./components/about/AboutSection";
 import ScrollButton from "./components/ScrollButton";
 
-
-
 function App() {
   return (
     <div className="">
       <React.Fragment>
-        <header className="">
+        <header>
           <Navbar />
         </header>
-        <main className="min-h-screen mx-auto ">
+        <main className="min-h-screen mx-auto">
           <Routes>
-          <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutSection />} />
             <Route path="/team" element={<Teachers />} />
             <Route path="/contact" element={<Contact />} />
@@ -41,7 +39,7 @@ function App() {
             <Route path="/reset-password" element={<ResetPassword />} />
           </Routes>
         </main>
-        <footer className="mt-20">
+        <footer className="mt-10">
           <Footer />
         </footer>
         <ScrollButton />
@@ -51,4 +49,3 @@ function App() {
 }
 
 export default App;
-
