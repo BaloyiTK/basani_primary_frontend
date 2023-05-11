@@ -74,9 +74,9 @@ const AboutSection = () => {
                   and strive for quality education.
                 </li>
                 <li>
-                  <span className="font-bold text-3xl">.</span> To develop learners
-                  for the community of Tshiawelo and the larger society of South
-                  Africa.
+                  <span className="font-bold text-3xl">.</span> To develop
+                  learners for the community of Tshiawelo and the larger society
+                  of South Africa.
                 </li>
                 <li>
                   <span className="font-bold text-3xl">.</span> We will develop
