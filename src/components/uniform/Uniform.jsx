@@ -22,7 +22,7 @@ const Uniform = () => {
   }, []);
 
   return (
-    <div className="container w-[95%] mx-auto mt-20">
+    <div className="container w-[95%] mx-auto min-h-fit mt-20">
       {loading ? (
         <div>
           <Spinner />
@@ -30,7 +30,7 @@ const Uniform = () => {
       ) : (
         <div>
           {" "}
-          <h1 className="flex justify-center  text-3xl font-bold mb-8">Official Uniform</h1>
+          <h1 className="flex justify-center text-3xl font-bold mb-8">Official Uniform</h1>
           <div className="">
           <p className="font-semibold">
             Shop Address :{<span className="font-normal">{shopAddress}</span>}

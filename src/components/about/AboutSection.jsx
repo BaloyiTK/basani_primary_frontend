@@ -3,7 +3,7 @@ import AboutCard from "./AboutCard";
 
 const AboutSection = () => {
   return (
-    <div className="container w-full mx-auto min-h-screen bg-gray-100 ">
+    <div className="container w-full mx-auto min-h-fit bg-gray-100 ">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-extrabold text-gray-900 text-center mt-8 mb-8">
           About Us
@@ -12,39 +12,52 @@ const AboutSection = () => {
           <AboutCard
             imgSrc="./Goal_Mission.jpg"
             title="Mission"
-            description="Our mission is to provide a safe, nurturing, and stimulating learning environment that enables each child to reach their full potential. We develop core academic skills and promote social, emotional, and physical development."
+            description={
+              <ul>
+                <li>
+                  <span class="font-bold text-3xl">.</span> We will involve all
+                  stakeholders and the larger community to achieve our vision,
+                  both practically and financially.
+                </li>
+                <li>
+                  <span class="font-bold text-3xl">.</span> We will strive to
+                  fundraise directly from our community and local businesses by
+                  requesting donations.
+                </li>
+              </ul>
+            }
           />
-          <ul></ul>
+
           <AboutCard
             imgSrc="/values.jpg"
             title="Values"
             description={
               <ul>
                 <li>
+                  <span className="font-bold text-3xl">.</span>{" "}
                   <span className="font-bold">Excellence</span> : Striving for
                   excellence in everything they do, and encouraging students to
                   do the same.
                 </li>
                 <li>
+                  <span className="font-bold text-3xl">.</span>{" "}
                   <span className="font-bold">Respect</span> : Valuing respect
                   for oneself, for others, and for the environment.
                 </li>
                 <li>
-                  <span></span> Integrity: Believing in honesty, integrity, and
-                  ethical behavior.
+                  <span className="font-bold text-3xl">.</span> <span></span>{" "}
+                  Integrity: Believing in honesty, integrity, and ethical
+                  behavior.
                 </li>
                 <li>
+                  <span className="font-bold text-3xl">.</span>{" "}
                   <span className="font-bold">Inclusivity</span>: Valuing
                   inclusivity and diversity, and promoting equity and inclusion.
                 </li>
                 <li>
+                  <span className="font-bold text-3xl">.</span>{" "}
                   <span className="font-bold">Collaboration</span> : Believing
                   in the power of collaboration and teamwork.
-                </li>
-                <li>
-                  <span className="font-bold"> Lifelong Learning</span>: Valuing
-                  lifelong learning and encouraging students to be curious and
-                  inquisitive.
                 </li>
               </ul>
             }
@@ -56,25 +69,19 @@ const AboutSection = () => {
             description={
               <ul>
                 <li>
-                  <span className="font-bold text-3xl">.</span>To be a leading
-                  school in academic excellence, character development, and
-                  community engagement
+                  <span className="font-bold text-3xl">.</span> To provide
+                  excellence in our school, equip pupils with necessary skills,
+                  and strive for quality education.
                 </li>
                 <li>
-                  .To empower learners to become lifelong learners capable of
-                  adapting to a rapidly changing world
+                  <span className="font-bold text-3xl">.</span> To develop learners
+                  for the community of Tshiawelo and the larger society of South
+                  Africa.
                 </li>
                 <li>
-                  .To create a learning environment that fosters creativity,
-                  critical thinking, and innovation
-                </li>
-                <li>
-                  .To value diversity and promote inclusivity, where all
-                  students feel safe, respected, and supported
-                </li>
-                <li>
-                  .To cultivate a culture of respect, responsibility, and
-                  ethical behavior among all members of the school community
+                  <span className="font-bold text-3xl">.</span> We will develop
+                  pupils holistically, addressing their physical, spiritual,
+                  mental, and other needs.
                 </li>
               </ul>
             }
@@ -114,12 +121,30 @@ const AboutSection = () => {
             assistant teachers, namely:
           </p>
           <ul class="text-gray-600 leading-7 mt-3">
-            <li>Mr. J Makhubele</li>
-            <li>Mr. EBR Shilubane</li>
-            <li>Mrs. M Radzilane</li>
-            <li>Mrs. E Mabanga</li>
-            <li>Ms Sambo</li>
-            <li>Mr. AJ Halala</li>
+            <li>
+              {" "}
+              <span>1.</span> Mr. J Makhubele
+            </li>
+            <li>
+              {" "}
+              <span>2.</span> Mr. EBR Shilubane
+            </li>
+            <li>
+              {" "}
+              <span>3.</span> Mrs. M Radzilane
+            </li>
+            <li>
+              {" "}
+              <span>4.</span> Mrs. E Mabanga
+            </li>
+            <li>
+              {" "}
+              <span>5.</span> Ms Sambo
+            </li>
+            <li>
+              {" "}
+              <span>6.</span> Mr. AJ Halala
+            </li>
             <span></span>
           </ul>
           <p class="text-gray-600 leading-7 mt-3">
@@ -135,11 +160,31 @@ const AboutSection = () => {
             <br />
             The following were Princicals of Basani Primary School
             <ul class="text-gray-600 leading-7 mt-3">
-              <li>Mr. NJ Mahale - 12 Jan 1965 to Dec 1966 </li>
-              <li>Mr. JM Khuvuthu - 15 Jan 1967 to Dec 1969</li>
-              <li>Mr, AP Baloyi - 19 Jan 1970 to MArch 1974</li>
-              <li>Mr. JN Mabale - 01 Apr 1974 to June 1994 </li>
-              <li>Mr. E Maluleke(fomrmer learner) 01 January 1997 to Date</li>
+              <li>
+                {" "}
+                <span class="font-bold text-2xl">.</span> Mr. NJ Mahale - 12 Jan
+                1965 to Dec 1966{" "}
+              </li>
+              <li>
+                {" "}
+                <span class="font-bold text-2xl">.</span> Mr. JM Khuvuthu - 15
+                Jan 1967 to Dec 1969
+              </li>
+              <li>
+                {" "}
+                <span class="font-bold text-2xl">.</span> Mr, AP Baloyi - 19 Jan
+                1970 to MArch 1974
+              </li>
+              <li>
+                {" "}
+                <span class="font-bold text-2xl">.</span> Mr. JN Mabale - 01 Apr
+                1974 to June 1994{" "}
+              </li>
+              <li>
+                {" "}
+                <span class="font-bold text-2xl">.</span> Mr. E Maluleke(fomrmer
+                learner) 01 January 1997 to Date
+              </li>
             </ul>
           </p>
 

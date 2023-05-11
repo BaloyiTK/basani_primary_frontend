@@ -51,7 +51,6 @@ const AdminDashboard = () => {
     { label: "Programs", value: "programs" },
     { label: "Uniform", value: "uniform" },
     { label: "Statistics", value: "statistics" },
-
   ];
 
   const handleCategoryClick = (value) => {
@@ -106,121 +105,50 @@ const AdminDashboard = () => {
       return null;
     }
 
+    function scrollIntoView(id) {
+      setTimeout(() => {
+        // check if screen width is less than 768 pixels
+        if (window.matchMedia("(max-width: 767px)").matches) {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }, 100); // wait for 100 milliseconds before executing the code
+    }
+
     switch (selectedCategory) {
       case "events":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const eventDiv = document.getElementById("events"); // replace "smsDiv" with the ID of your actual element
-            if (eventDiv) {
-              eventDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <EventsTable />;
       case "communication":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("sms"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <Sms />;
-
       case "team":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("team"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <Table />;
-
       case "gallery":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("gallery"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <GalleryTable />;
       case "users":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("users"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <UserTable />;
       case "dashboard":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("dashboard"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <DashboardSummary />;
       case "uniform":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("uniform"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <UniformTable />;
       case "announcements":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("announcements"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <AnnouncementsTable />;
       case "programs":
-      case "announcements":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("programs"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return <ProgramTable />;
       case "settings":
         return <Settings />;
       case "statistics":
-        setTimeout(() => {
-          // check if screen width is less than 768 pixels
-          if (window.matchMedia("(max-width: 767px)").matches) {
-            const smsDiv = document.getElementById("statistics"); // replace "smsDiv" with the ID of your actual element
-            if (smsDiv) {
-              smsDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }, 100); // wait for 100 milliseconds before executing the code
+        scrollIntoView(selectedCategory);
         return;
       // Add other cases for other tables here
       default:

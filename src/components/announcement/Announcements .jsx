@@ -15,7 +15,7 @@ const Announcements = () => {
 
   return (
     <section
-      className="container w-[95%] mx-auto announcement-section  h-screen flex items-center justify-center "
+      className="container w-[95%] mx-auto announcement-section  min-h-fit my-10 flex items-center justify-center "
       style={{
         backgroundImage: "url(/anoucement.jpg)",
         backgroundSize: "cover",

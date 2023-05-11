@@ -22,7 +22,7 @@ const Events = () => {
   }, []);
 
   return (
-    <div className="min-h-screen mt-20">
+    <div className="min-h-fit py-10 mt-20">
       {loading ? (
         <div>
           <Spinner />
