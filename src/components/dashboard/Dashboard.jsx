@@ -256,7 +256,7 @@ const AdminDashboard = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-5 h-full">
-          <div className="md:col-span-1 border-r border-gray-200 px-8 py-6 bg-maroon-900 t">
+          <div className="md:col-span-1 border-r border-gray-200 px-8 py-10 bg-maroon-900 t">
             <h2 className="text-2xl font-bold text-gray-100 mb-4">
               Admin Dashboard
             </h2>
@@ -279,7 +279,7 @@ const AdminDashboard = () => {
               ))}
             </ul>
           </div>
-          <div className="md:col-span-4 flex-grow p-8 bg-slate-300">
+          <div className="md:col-span-4 flex-grow p-8  bg-slate-300">
             {selectedCategory === "dashboard" ? (
               <dir>
                 {" "}

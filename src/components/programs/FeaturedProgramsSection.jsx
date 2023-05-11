@@ -15,7 +15,7 @@ const FeaturedProgramsSection = () => {
 
   return (
     <div>
-      <div id="programe" className="min-h-screen max-w-7xl mx-auto px-4 mt-10 sm:px-6 lg:px-8">
+      <div id="programe" className="min-h-screen container w-[90%] mx-auto mt-10 ">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-gray-900">
             Featured Programs

@@ -50,20 +50,35 @@ const AboutSection = () => {
             }
           />
 
-<AboutCard
-  imgSrc="/Vision.png"
-  title="Vision"
-  description={
-    <ul>
-      <li><span className="font-bold text-3xl">.</span>To be a leading school in academic excellence, character development, and community engagement</li>
-      <li>.To empower learners to become lifelong learners capable of adapting to a rapidly changing world</li>
-      <li>.To create a learning environment that fosters creativity, critical thinking, and innovation</li>
-      <li>.To value diversity and promote inclusivity, where all students feel safe, respected, and supported</li>
-      <li>.To cultivate a culture of respect, responsibility, and ethical behavior among all members of the school community</li>
-    </ul>
-  }
-/>
-
+          <AboutCard
+            imgSrc="/Vision.png"
+            title="Vision"
+            description={
+              <ul>
+                <li>
+                  <span className="font-bold text-3xl">.</span>To be a leading
+                  school in academic excellence, character development, and
+                  community engagement
+                </li>
+                <li>
+                  .To empower learners to become lifelong learners capable of
+                  adapting to a rapidly changing world
+                </li>
+                <li>
+                  .To create a learning environment that fosters creativity,
+                  critical thinking, and innovation
+                </li>
+                <li>
+                  .To value diversity and promote inclusivity, where all
+                  students feel safe, respected, and supported
+                </li>
+                <li>
+                  .To cultivate a culture of respect, responsibility, and
+                  ethical behavior among all members of the school community
+                </li>
+              </ul>
+            }
+          />
         </div>
       </div>
 

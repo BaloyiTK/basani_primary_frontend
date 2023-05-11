@@ -15,14 +15,14 @@ const Announcements = () => {
 
   return (
     <section
-      className="w-[95%] announcement-section  h-screen flex items-center justify-center "
+      className="container w-[95%] mx-auto announcement-section  h-screen flex items-center justify-center "
       style={{
         backgroundImage: "url(/anoucement.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="container mx-auto bg-white bg-opacity-75 px-8 py-12">
+      <div className="container mx-auto bg-white bg-opacity-75 py-12">
         <h2 className="flex justify-center text-3xl font-bold mb-8">Announcements</h2>
         <ul>
           {announcements &&

@@ -2,7 +2,7 @@ import React from "react";
 
 const Admissions = () => {
   return (
-    <div className="min-h-screen bg-white shadow-md rounded-lg px-8 py-6" id="admissions">
+    <div className="container w-[95%] mx-auto min-h-screen bg-white shadow-md rounded-lg py-6" id="admissions">
       <h2 className="flex justify-center px-1 text-3xl font-bold text-gray-800 mb-2">
         Admissions
       </h2>

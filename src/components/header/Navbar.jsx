@@ -9,8 +9,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex items-center justify-center border-b-1 border-maroon-900">
-      <div className="container w-[90%] h-[20%] flex items-center justify-between">
+    <div className="flex items-center justify-center border-b-2 border-maroon-900">
+      <div className="container w-[95%] h-[20%] flex items-center justify-between">
         <Logo />
 
         <div className="hidden md:block">
