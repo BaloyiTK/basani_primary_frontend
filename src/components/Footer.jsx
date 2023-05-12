@@ -28,21 +28,7 @@ const Footer = () => {
                   <i className="fab fa-facebook fa-2x hover:text-blue-500"></i>
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-twitter fa-2x hover:text-blue-500"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-instagram fa-2x hover:text-pink-500"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-youtube fa-2x hover:text-red-500"></i>
-                </a>
-              </li>
+             
             </ul>
           </div>
         </div>
