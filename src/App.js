@@ -15,6 +15,7 @@ import { ResetPassword } from "./components/users/ResetPassword";
 import React from "react";
 import AboutSection from "./components/about/AboutSection";
 import ScrollButton from "./components/ScrollButton";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route element={NotFoundPage} />
           </Routes>
         </main>
         <footer className="mt-10">

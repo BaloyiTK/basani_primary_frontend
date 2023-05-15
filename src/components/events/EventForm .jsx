@@ -3,6 +3,7 @@ import moment from "moment";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import RichTextEditor from "../RichTextEditor";
 
 const EventForm = () => {
   const [inputData, setInputData] = useState({
@@ -100,6 +101,8 @@ const EventForm = () => {
         className=" shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
         <div className="mb-4">
+          <RichTextEditor/>
+        
           <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
             Title:
           </label>

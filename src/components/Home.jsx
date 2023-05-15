@@ -11,6 +11,7 @@ import Events from "./events/Events";
 import StatisticsSection from "./StatisticsSection ";
 import Uniform from "./uniform/Uniform";
 
+
 const Home = () => {
   return (
     <React.Fragment>

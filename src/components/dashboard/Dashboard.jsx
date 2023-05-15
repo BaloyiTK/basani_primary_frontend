@@ -18,11 +18,13 @@ import AnnouncementsTable from "../announcement/AnnouncementsTable";
 import AnnouncementForm from "../announcement/AnnouncementForm";
 import ProgramForm from "../programs/ProgramForm";
 import ProgramTable from "../programs/ProgramTable";
-import Settings from "../Settings";
 import Spinner from "../Spinner";
 import StatsForm from "../StatsFrom";
 import Table from "../team/Table";
 import DashboardSummary from "./DashboardSummary";
+import History from "../History";
+import Admissions from "../Admissions";
+import AdmissionInput from "../AdmissionInput";
 axios.defaults.withCredentials = true;
 
 const AdminDashboard = () => {
@@ -51,6 +53,8 @@ const AdminDashboard = () => {
     { label: "Programs", value: "programs" },
     { label: "Uniform", value: "uniform" },
     { label: "Statistics", value: "statistics" },
+    { label: "History", value: "history" },
+    { label: "Admission", value: "admission" },
   ];
 
   const handleCategoryClick = (value) => {
@@ -145,11 +149,12 @@ const AdminDashboard = () => {
       case "programs":
         scrollIntoView(selectedCategory);
         return <ProgramTable />;
-      case "settings":
-        return <Settings />;
+      case "history":
+        return <History/>;
+        case "admission":
+          return <AdmissionInput/>;
       case "statistics":
         scrollIntoView(selectedCategory);
-        return;
       // Add other cases for other tables here
       default:
         return null;
@@ -217,11 +222,15 @@ const AdminDashboard = () => {
                 <p className="text-gray-700 mb-8">Here's a quick summary.</p>
               </dir>
             ) : null}
+             
 
             <div className="mt-4">
               {selectedCategory !== "communication" &&
                 selectedCategory !== "dashboard" &&
-                selectedCategory !== "settings" && (
+                selectedCategory !== "settings" &&
+                selectedCategory !== "history" &&
+                selectedCategory !== "admission" &&
+                (
                   <button
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200"
                     onClick={() => {
@@ -269,6 +278,7 @@ const AdminDashboard = () => {
                 <AnnouncementForm className="w-1/2 mx-auto" />
               )}
               {showStatsForm && <StatsForm className="w-1/2 mx-auto" />}
+             
             </div>
           </div>
         </div>

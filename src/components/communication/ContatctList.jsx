@@ -36,7 +36,6 @@ const ContactList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [contacts, setcontacts] = useState([]);
 
-  console.log(contacts);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
