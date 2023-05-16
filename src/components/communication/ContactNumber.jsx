@@ -62,14 +62,14 @@ const ContactNumber = () => {
 
 
   return (
-    <div className="grid bg-white justify-center shadow-md p-4 rounded-lg">
+    <div className="grid bg-white justify-center shadow-md p-4 rounded-lg ">
       {error ? (
         <p className="text-red-500">{error}</p>
       ) : message ? (
         <p className="text-green-500">{message}</p>
       ) : null}
       <div className="pb-5">
-        <div className="flex justify-between mb-4">
+        <div className="flex  mb-4">
           <h1 className="text-2xl font-bold">Manage Contacts</h1>
           <button
             onClick={() => setIsAddingContact(!isAddingContact)}
@@ -130,7 +130,8 @@ const ContactNumber = () => {
             <UploadContacts />
           </div>
         ) : (
-          <ContatctList />
+          <div className="">  <ContatctList /></div>
+        
         )}
       </div>
     </div>

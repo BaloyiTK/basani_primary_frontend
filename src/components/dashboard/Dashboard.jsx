@@ -150,9 +150,12 @@ const AdminDashboard = () => {
         scrollIntoView(selectedCategory);
         return <ProgramTable />;
       case "history":
-        return <History/>;
-        case "admission":
-          return <AdmissionInput/>;
+        scrollIntoView(selectedCategory);
+        return <History />;
+
+      case "admission":
+        scrollIntoView(selectedCategory);
+        return <AdmissionInput />;
       case "statistics":
         scrollIntoView(selectedCategory);
       // Add other cases for other tables here
@@ -222,15 +225,13 @@ const AdminDashboard = () => {
                 <p className="text-gray-700 mb-8">Here's a quick summary.</p>
               </dir>
             ) : null}
-             
 
             <div className="mt-4">
               {selectedCategory !== "communication" &&
                 selectedCategory !== "dashboard" &&
                 selectedCategory !== "settings" &&
                 selectedCategory !== "history" &&
-                selectedCategory !== "admission" &&
-                (
+                selectedCategory !== "admission" && (
                   <button
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200"
                     onClick={() => {
@@ -278,7 +279,6 @@ const AdminDashboard = () => {
                 <AnnouncementForm className="w-1/2 mx-auto" />
               )}
               {showStatsForm && <StatsForm className="w-1/2 mx-auto" />}
-             
             </div>
           </div>
         </div>

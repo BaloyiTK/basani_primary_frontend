@@ -97,10 +97,10 @@ function RichTextEditor({ For }) {
   ];
 
   return (
-    <div className="w-full mx-auto my-4 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full mx-auto my-4 lg:px-8">
+      <div className="w-full mx-auto">
         <ReactQuill
-          className="w-full border-gray-300 border-2 rounded-lg p-4 bg-white"
+          className="w-full border-gray-300 border-2 rounded-lg bg-white"
           value={content}
           onChange={setContent}
           modules={modules}

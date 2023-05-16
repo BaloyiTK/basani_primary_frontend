@@ -1,5 +1,7 @@
-import React from 'react';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import React from "react";
+import { Link } from "react-router-dom";
+
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Footer = () => {
   return (
@@ -16,28 +18,34 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="about">About Us</a>
+              </li>
             </ul>
           </div>
           <div>
             <h3 className="text-lg font-bold mb-4">Follow Us</h3>
-            <ul className="flex space-x-4">
+
+            <ul className="space-y-2">
               <li>
-                <a href="#">
-                  <i className="fab fa-facebook fa-2x hover:text-blue-500"></i>
-                </a>
+                <Link to="/">Home</Link>
               </li>
-             
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
             </ul>
           </div>
         </div>
         <hr className="my-8 border-gray-700" />
-        <p className="text-sm text-center">&copy; 2023 Basani Primary School. All rights reserved.</p>
+        <p className="text-sm text-center">
+          &copy; 2023 Basani Primary School. All rights reserved.
+        </p>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
-

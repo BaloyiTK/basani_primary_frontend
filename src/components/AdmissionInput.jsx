@@ -5,7 +5,7 @@ const AdmissionInput = () => {
   
     return (
         <div>
-          <h2 className="flex justify-center text-2xl font-bold text-gray-800 mb-4">
+          <h2 className="flex justify-center text-2xl font-bold text-gray-800 mb-4" id='admission'>
             School Admission Information
           </h2>
           <RichTextEditor For="admission" />

@@ -1,96 +1,114 @@
 import React, { useState, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTrash } from "react-icons/fa";
+import getSmsGradeColor from "./smsGrades";
 import api_endpoint from "../../utils/config";
 import axios from "axios";
 
-const getSmsGradeColor = (grade) => {
-  switch (grade) {
-    case "R":
-      return "bg-green-500 text-white";
-    case "1":
-      return "bg-green-400 text-white";
-    case "2":
-      return "bg-yellow-500 text-white";
-    case "3":
-      return "bg-yellow-400 text-gray-900";
-    case "4":
-      return "bg-red-500 text-white";
-    case "5":
-      return "bg-red-400 text-white";
-    case "6":
-      return "bg-maroon-400 text-white";
-    case "7":
-      return "bg-red-400 text-white";
-    case "SGB":
-      return "bg-gray-400 text-white";
-    case "Other":
-      return "bg-red-400 text-white";
-    case "Teachers":
-      return "bg-pink-400 text-white";
-    default:
-      return "bg-gray-400 text-white";
-  }
-};
-
 const ContactList = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [contacts, setcontacts] = useState([]);
-
+  const [contacts, setContacts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedContact, setSelectedContact] = useState(null); // State variable to store the selected contact
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredContacts = contacts.filter((contact) =>
-    contact.number.includes(searchTerm)
-  );
-
   useEffect(() => {
     axios
       .get(`${api_endpoint}/api/contact`)
       .then((response) => {
-        setcontacts(response.data);
-        //   setloading(false);
+        setContacts(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
 
+  const filteredContacts = contacts.filter((contact) =>
+    contact.number.includes(searchTerm)
+  );
+
+  const handleContactClick = (index) => {
+    const clickedContact = filteredContacts[index];
+
+    if (selectedContact === clickedContact) {
+      // If the clicked contact is the same as the currently selected contact, clear the selection
+      setSelectedContact(null);
+    } else {
+      setSelectedContact(clickedContact);
+    }
+  };
+
+  const handleDeleteClick = async (contact) => {
+    try {
+      const res = await axios.delete(
+        `${api_endpoint}/api/contact/${contact._id}`
+      );
+      console.log(res);
+  
+      // Filter out the deleted contact from the contacts array
+      setContacts((prevContacts) =>
+        prevContacts.filter((c) => c._id !== contact._id)
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
   return (
-    <div className="w-full">
-      <div className="bg-white shadow-md rounded my-6">
-        <div className="px-4 py-2 flex items-center">
-          <FaSearch className="text-gray-400 mr-2" />
-          <input
-            type="text"
-            placeholder="Search contacts by phone number..."
-            className="border rounded-lg py-2 px-4 w-full"
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-        </div>
-        <ul className=" max-h-screen overflow-y-scroll overflow-x-scroll">
-          {filteredContacts.map((contact, index) => (
-            <li key={index} className="flex justify-between py-2 px-4">
-              <span>{contact.number}</span>
-              <div className="flex items-center space-x-2">
-                {contact.grades.map((grade, index) => (
+<div className="flex justify-center">
+  <div className="w-full max-w-md p-4">
+    <div className="relative">
+      <FaSearch className="absolute h-5 w-5 left-3 top-2 text-gray-400" />
+      <input
+        type="text"
+        className="block w-full pl-10 pr-3 py-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        placeholder="Search contacts by phone number..."
+        value={searchTerm}
+        onChange={handleSearch}
+      />
+    </div>
+    {isLoading ? (
+      <div className="mt-4">Loading...</div>
+    ) : (
+      <ul className="mt-4 overflow-x-auto bg-black text-white">
+        {filteredContacts.map((contact, index) => (
+          <li
+            key={index}
+            className={`p-4 ${selectedContact === contact ? 'bg-gray-300 relative border-b border-white' : ''}`}
+            onClick={() => handleContactClick(index)}
+          >
+            <span>{contact.number}</span>
+            <div className="mt-2">
+              {contact.grades &&
+                contact.grades.map((grade, index) => (
                   <span
                     key={index}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold ${getSmsGradeColor(
-                      grade
-                    )}`}
+                    className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${getSmsGradeColor(grade)} mr-2`}
                   >
                     {grade}
                   </span>
                 ))}
+            </div>
+            {selectedContact === contact && (
+              <div className="mt-2 absolute right-1 top-0 bottom-0 flex justify-center items-center">
+                <FaTrash
+                  className="h-5 w-5 text-red-500 cursor-pointer"
+                  onClick={() => handleDeleteClick(contact)}
+                />
               </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>
+
+  
   );
 };
 
