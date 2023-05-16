@@ -33,17 +33,17 @@ body {
 .announcement-section {
   padding: auto;
   height: auto;
-  background-image: url(../public/anoucement.png);
+  /* background-image: url(../public/anoucement.png);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 
 }
 
 .gallery {
   padding: auto;
   height: auto;
-  background-image: url(../public/rm422-076-x.jpg);
+  /* background-image: url(../public/rm422-076-x.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 
 }

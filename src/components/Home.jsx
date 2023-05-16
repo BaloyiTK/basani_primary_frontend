@@ -1,6 +1,5 @@
 import React from "react";
 import AboutSection from "./about/AboutSection";
-import Admissions from "./Admissions";
 import Announcements from "./announcement/Announcements ";
 import FeaturedProgramsSection from "./programs/FeaturedProgramsSection";
 import HeroSection from "./HeroSection";
@@ -10,6 +9,7 @@ import Team from "./team/Team";
 import Events from "./events/Events";
 import StatisticsSection from "./StatisticsSection ";
 import Uniform from "./uniform/Uniform";
+import Admissions from "./admission/Admissions";
 
 
 const Home = () => {

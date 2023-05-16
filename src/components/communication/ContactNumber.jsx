@@ -23,7 +23,6 @@ const ContactNumber = () => {
   const [selectedGrades, setSelectedGrades] = useState([]);
   const [message, setMessage] = useState();
   const [error, setError] = useState();
-  const [showManageContact, setShowManageContact] = useState(false); // add new state variable
   const [isAddingContact, setIsAddingContact] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -60,7 +59,6 @@ const ContactNumber = () => {
     setMessage("");
   };
 
-
   return (
     <div className="grid bg-white justify-center shadow-md p-4 rounded-lg ">
       {error ? (
@@ -70,10 +68,16 @@ const ContactNumber = () => {
       ) : null}
       <div className="pb-5">
         <div className="flex  mb-4">
-          <h1 className="text-2xl font-bold">Manage Contacts</h1>
+          <h1 className="text-2xl mx-1 font-bold">Manage Contacts</h1>
           <button
-            onClick={() => setIsAddingContact(!isAddingContact)}
-            className="bg-purple-500 text-white rounded-lg py-2 px-4 hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+            onClick={() => {
+              setIsAddingContact(!isAddingContact);
+              setError("");
+              setMessage("");
+              setNumber("")
+              setSelectedGrades([])
+            }}
+            className="bg-purple-500 text-white rounded-lg p-1 hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
           >
             {isAddingContact ? "Manage Contacts" : "Add Contact"}
           </button>
@@ -130,8 +134,10 @@ const ContactNumber = () => {
             <UploadContacts />
           </div>
         ) : (
-          <div className="">  <ContatctList /></div>
-        
+          <div className="">
+            {" "}
+            <ContatctList />
+          </div>
         )}
       </div>
     </div>

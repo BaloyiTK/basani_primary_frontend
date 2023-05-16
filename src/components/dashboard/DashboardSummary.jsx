@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import { AiOutlineContacts, AiOutlinePicture } from "react-icons/ai";
 import { BiNews } from "react-icons/bi";
-import { GrAnnounce } from "react-icons/gr";
+
 
 import api_endpoint from "../../utils/config";
 import axios from "axios";

@@ -23,8 +23,7 @@ import StatsForm from "../StatsFrom";
 import Table from "../team/Table";
 import DashboardSummary from "./DashboardSummary";
 import History from "../History";
-import Admissions from "../Admissions";
-import AdmissionInput from "../AdmissionInput";
+import AdmissionInput from "../admission/AdmissionInput";
 axios.defaults.withCredentials = true;
 
 const AdminDashboard = () => {
