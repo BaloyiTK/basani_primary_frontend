@@ -4,23 +4,19 @@ import axios from "axios";
 import api_endpoint from "../../utils/config";
 
 const AboutSection = () => {
-  const [history, setHistory] = useState()
-
-  console.log(history)
+  const [history, setHistory] = useState();
 
   useEffect(() => {
     const fetchHistory = async () => {
       try {
         const response = await axios.get(`${api_endpoint}/api/history`);
         setHistory(response.data.history[0]);
-     
       } catch (error) {
         console.log(error);
       }
     };
     fetchHistory();
   }, []);
-
 
   return (
     <div className="container w-full mx-auto min-h-fit bg-gray-100 ">
@@ -111,18 +107,18 @@ const AboutSection = () => {
 
       {/* School History */}
 
-       <div class="p-2 bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
+      <div class="p-2 bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
         <div class="py-2">
           <h2 class="flex justify-center text-xl font-bold text-gray-800">
             Our History
           </h2>
         </div>
         <div class="bg-gray-100 py-2">
-
-        {history && <div dangerouslySetInnerHTML={{ __html: history.content }}></div>}  
-        
+          {history && (
+            <div dangerouslySetInnerHTML={{ __html: history.content }}></div>
+          )}
         </div>
-      </div> 
+      </div>
     </div>
   );
 };

@@ -50,7 +50,7 @@ const Gallery = () => {
       ) : (
         <>
           <div>
-            <h2 className="flex justify-center items-center text-3xl font-bold text-gray-900 pt-10">
+            <h2 className="flex justify-center items-center text-3xl font-bold text-gray-900 pt-4">
               Photo Gallery
             </h2>
           </div>
@@ -64,19 +64,18 @@ const Gallery = () => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-  <div class="flex items-center justify-center h-screen">
-  <img
-    class="w-full h-4/5 object-cover rounded-lg shadow-md md:w-2/3"
-    src={galleryItems[currentImageIndex]?.image}
-    alt="Basani Primary School"
-    onLoad={() => {
-      setLoading(false);
-    }}
-  />
-</div>
-
+              <div class="flex items-center justify-center h-screen">
+                <img
+                  class="w-full h-4/5 object-cover rounded-lg shadow-md md:w-2/3"
+                  src={galleryItems[currentImageIndex]?.image}
+                  alt="Basani Primary School"
+                  onLoad={() => {
+                    setLoading(false);
+                  }}
+                />
+              </div>
             </Transition>
-            <div className="absolute bottom-0 left-0 right-0 flex justify-between px-4 py-2 bg-gray-900 bg-opacity-75 text-white">
+            <div className="absolute bottom-0 left-0 right-0 flex justify-between px-4 py-2 mb-[8.5%] md:mb-[4.5%] bg-gray-900 bg-opacity-75 text-white">
               <div className="flex items-center">
                 <span className="mr-2">{currentImageIndex + 1}</span>
                 <span className="mr-1">/</span>
