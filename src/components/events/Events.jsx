@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import api_endpoint from "../../utils/config";
 import Spinner from "../Spinner";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { BiInfoCircle } from "react-icons/bi";
 import InfoMessage from "../InfoMessage ";
 
 const Events = () => {
@@ -33,9 +31,12 @@ const Events = () => {
             Upcoming Events
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 w-[95%] mx-auto md:grid-cols-3 gap-8">
-            {events.length == 0 && (
-              <InfoMessage message="There are no events scheduled." />
-            )}
+            <div>
+              {" "}
+              {events.length === 0 && (
+                <InfoMessage message="There are no events scheduled." />
+              )}
+            </div>
 
             {events &&
               events.map((event, index) => {
