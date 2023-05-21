@@ -4,13 +4,17 @@ import api_endpoint from "../../utils/config";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const GalleryForm = () => {
+
   const [formData, setFormData] = useState({
     image: "",
   });
 
+
   const [message, setmessage] = useState();
   const [error, seterror] = useState();
   const [uploading, setuploading] = useState();
+
+
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];

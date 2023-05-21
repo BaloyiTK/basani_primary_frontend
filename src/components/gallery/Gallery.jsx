@@ -40,6 +40,7 @@ const Gallery = () => {
       currentImageIndex === 0 ? galleryItems.length - 1 : currentImageIndex - 1
     );
   };
+  
 
   return (
     <div className="md:h-screen">
