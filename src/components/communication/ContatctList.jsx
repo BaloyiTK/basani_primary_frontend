@@ -11,8 +11,6 @@ const ContactList = () => {
   const [selectedContact, setSelectedContact] = useState(null); // State variable to store the selected contact
   const [deleting, setDeleting] = useState(false)
 
-  console.log(deleting)
-
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };

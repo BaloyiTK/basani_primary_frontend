@@ -174,7 +174,6 @@ const AdminDashboard = () => {
         setloading(false);
       } catch (error) {
         dispatch(authActions.logout());
-        console.error(error);
         navigate("/login");
       }
     };

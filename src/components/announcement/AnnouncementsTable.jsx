@@ -20,7 +20,6 @@ const AnnouncementsTable = () => {
         console.log(response)
         setloading(false);
       } catch (error) {
-        console.log(error);
         seterror(error.response.data.message)
         setloading(false)
       }

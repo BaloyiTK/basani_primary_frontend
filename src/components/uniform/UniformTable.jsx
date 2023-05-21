@@ -82,7 +82,7 @@ const UniformTable = () => {
         </thead>
         <tbody className="divide-y divide-gray-200">
           {uniforms.map((uniform) => (
-            <tr key={uniform.id} className="hover:bg-gray-50">
+            <tr key={uniform._id} className="hover:bg-gray-50">
               <td className="py-4 px-6 whitespace-nowrap">
                 {uniform.name}
               </td>

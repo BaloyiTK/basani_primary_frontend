@@ -40,7 +40,7 @@ const DashboardSummary = () => {
         setNumEvents(response.data.event.length);
       })
       .catch((error) => {
-        console.error("Error fetching statistics: ", error);
+       
       });
 
     // Fetch the SMS balance from the API endpoint
@@ -77,7 +77,7 @@ const DashboardSummary = () => {
       .then((response) => {
         setNumAnnouncements(response.data.announcements.length);
       })
-      .catch((error) => console.log(error));
+      .catch((error) =>{});
   }, []);
 
   return (

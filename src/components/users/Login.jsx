@@ -19,11 +19,10 @@ const Login = () => {
         { email, password },
         { withCredentials: true, credentials: "include" }
       )
-      .then((response) => {
+      .then(() => {
         navigate("/dashboard");
       })
       .catch((error) => {
-        console.error("Error:", error);
         setError(error.response.data.message)
       });
   };
