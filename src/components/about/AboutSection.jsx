@@ -107,7 +107,7 @@ const AboutSection = () => {
 
       {/* School History */}
 
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full px-2">
         <div class="py-4">
           <h2 class="text-center text-2xl font-bold text-gray-800">
             Our History
