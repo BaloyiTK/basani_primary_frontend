@@ -38,7 +38,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
-            <Route element={NotFoundPage} />
+
+            {/* Catch-all route for 404 page */}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <footer className="mt-10">

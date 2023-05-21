@@ -17,13 +17,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="about">About Us</a>
-              </li>
-            </ul>
+  <li>
+    <Link to="/">Home</Link>
+  </li>
+  <li>
+    <Link to="/about">About Us</Link>
+  </li>
+</ul>
           </div>
           <div>
   <h3 className="text-lg font-bold mb-4">Follow Us</h3>
