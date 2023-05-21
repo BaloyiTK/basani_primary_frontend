@@ -61,9 +61,9 @@ const AboutSection = () => {
                   for oneself, for others, and for the environment.
                 </li>
                 <li>
-                  <span className="font-bold text-3xl">.</span> <span></span>{" "}
-                  Integrity: Believing in honesty, integrity, and ethical
-                  behavior.
+                  <span className="font-bold text-3xl">.</span>{" "}
+                  <span className="font-bold">Integrity</span> : Believing in honesty, integrity, and
+                  ethical behavior.
                 </li>
                 <li>
                   <span className="font-bold text-3xl">.</span>{" "}
@@ -107,13 +107,13 @@ const AboutSection = () => {
 
       {/* School History */}
 
-      <div class="p-2 bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
-        <div class="py-2">
-          <h2 class="flex justify-center text-xl font-bold text-gray-800">
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-auto mt-4 md:w-full">
+        <div class="py-4">
+          <h2 class="text-center text-2xl font-bold text-gray-800">
             Our History
           </h2>
         </div>
-        <div class="bg-gray-100 py-2">
+        <div class="bg-gray-100 py-4">
           {history && (
             <div dangerouslySetInnerHTML={{ __html: history.content }}></div>
           )}
