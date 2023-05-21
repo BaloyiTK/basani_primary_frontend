@@ -13,42 +13,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* Rest of your CSS code */
-
-
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-
-
-.hero-section {
-  padding: auto;
-  height: 100vh;
-  background-image: url(../public/istockphoto-803149430-612x612.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: black;
-}
-
-
-.announcement-section {
-  padding: auto;
-  height: auto;
-  /* background-image: url(../public/anoucement.png);
-  background-size: cover;
-  background-repeat: no-repeat; */
-
-}
-
-.gallery {
-  padding: auto;
-  height: auto;
-  /* background-image: url(../public/rm422-076-x.jpg);
-  background-size: cover;
-  background-repeat: no-repeat; */
-
 }
