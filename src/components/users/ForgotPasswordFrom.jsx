@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Email, Submit } from "../UserInput";
 import { apiRequest } from "../../utils/formHelpers";
 import api_endpoint from "../../utils/config";
@@ -9,10 +10,6 @@ const ForgotPassword = () => {
   const [inputData, setInputData] = useState({
     email: "",
   });
-
-  console.log(error)
-
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,19 +35,22 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className=" flex justify-center">
+    <div className="flex justify-center h-screen">
       <form
         method="POST"
         onSubmit={handleSubmit}
-        className="flex flex-col p-4  mt-20 justify-center space-y-4 md:shadow-2xl"
+        className="flex flex-col w-1/2 justify-center space-y-4 md:shadow-2xl"
       >
+        <div className=" flex justify-center items-center">
 
-        {error.message &&  <p className="text-red-500">{error.message}</p>}
-        <p className="text-green-500">{message}</p>
-      
+        {error.message && <p className="text-red-500">{error.message}</p>}
+        {message && <p className="text-green-500">{message}</p>}
+
+        </div>
+ 
 
         <div className="bg-gray-800 h-10 flex items-center justify-center mb-10">
-          <h2 className=" flex justify-center m-20 font-bold text-white ">
+          <h2 className="flex justify-center m-20 font-bold text-white">
             Forgot Password
           </h2>
         </div>
@@ -58,6 +58,13 @@ const ForgotPassword = () => {
         <Email value={inputData.email} onChange={handleInputChange} required />
 
         <Submit value="Reset" bgColor="bg-green-600" className="m-10 pb-10" />
+
+        <p className="text-center text-sm">
+          Remember your password?{" "}
+          <Link className="text-blue-500 font-bold" to="/login">
+            Login
+          </Link>
+        </p>
       </form>
     </div>
   );
