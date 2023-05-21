@@ -30,7 +30,7 @@ const Announcements = () => {
         </h2>
 
         {announcements && announcements.length === 0 ? (
-   <div className="flex justify-center md:justify-start md:ml-[4%]">
+   <div className="flex justify-center">
    <InfoMessage message="There are currently no announcements available." />
  </div>
  

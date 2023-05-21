@@ -30,13 +30,15 @@ const Events = () => {
           <h2 className="flex justify-center text-3xl font-semibold text-gray-800 mb-8">
             Upcoming Events
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 w-[95%] mx-auto md:grid-cols-3 gap-8">
-            <div>
+
+          <div  className="flex justify-center items-center">
               {" "}
               {events.length === 0 && (
                 <InfoMessage message="There are no events scheduled." />
               )}
             </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 w-[95%] mx-auto md:grid-cols-3 gap-8">
+           
 
             {events &&
               events.map((event, index) => {
