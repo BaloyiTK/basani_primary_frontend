@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Footer = () => {
@@ -27,17 +26,18 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-4">Follow Us</h3>
+  <h3 className="text-lg font-bold mb-4">Follow Us</h3>
 
-            <ul className="space-y-2">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About Us</Link>
-              </li>
-            </ul>
-          </div>
+  <ul className="space-y-2">
+  <li>
+    <a href="https://facebook.com" target="_blank" className="flex items-center">
+      <i className="fab fa-facebook text-blue-500 bg-white rounded-full border text-xl mr-1"></i> facebook
+    </a>
+  </li>
+  
+</ul>
+
+</div>
         </div>
         <hr className="my-8 border-gray-700" />
         <p className="text-sm text-center">
