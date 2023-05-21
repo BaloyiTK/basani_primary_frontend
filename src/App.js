@@ -24,7 +24,7 @@ function App() {
         <header>
           <Navbar />
         </header>
-        <main className="min-h-screen mx-auto">
+        <main className="min-h-fit mx-auto">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutSection />} />

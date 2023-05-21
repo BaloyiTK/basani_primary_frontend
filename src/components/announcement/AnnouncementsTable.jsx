@@ -16,6 +16,8 @@ const AnnouncementsTable = () => {
       try {
         const response = await axios.get(`${api_endpoint}/api/announcement`);
         setAnnouncements(response.data.announcements);
+
+        console.log(response)
         setloading(false);
       } catch (error) {
         console.log(error);
