@@ -21,7 +21,6 @@ const ProgramForm = () => {
     setmessage("");
   };
 
-
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -44,8 +43,8 @@ const ProgramForm = () => {
       setaddingProgram(false);
     } catch (error) {
       console.error(error);
-      seterror(error);
-	  setaddingProgram(false)
+      seterror(error.response.data.message);
+      setaddingProgram(false);
     }
   };
 
@@ -87,7 +86,7 @@ const ProgramForm = () => {
       )}
       {error && (
         <p className="flex items-center text-red-500">
-          <FaTimesCircle className=" pr-1" size={20} /> {"Please fill all the fields"}
+          <FaTimesCircle className=" pr-1" size={20} /> {error}
         </p>
       )}
 

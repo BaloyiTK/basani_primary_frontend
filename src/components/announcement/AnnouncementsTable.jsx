@@ -21,6 +21,8 @@ const AnnouncementsTable = () => {
         setloading(false);
       } catch (error) {
         console.log(error);
+        seterror(error.response.data.message)
+        setloading(false)
       }
     };
     fetchAnnouncements();
@@ -65,7 +67,7 @@ const AnnouncementsTable = () => {
       ) : (
         <div className="overflow-x-auto">
           {announcements && announcements.length === 0 ? (
-            <p>No announcements found.</p>
+            <p></p>
           ) : (
             <table className="w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
