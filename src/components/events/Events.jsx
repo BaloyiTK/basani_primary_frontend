@@ -12,9 +12,13 @@ const Events = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const response = await axios.get(`${api_endpoint}/api/event`);
-      setEvents(response.data.event);
-      setloading(false);
+      try {
+        const response = await axios.get(`${api_endpoint}/api/event`);
+        setEvents(response.data.event);
+        setloading(false);
+      } catch (error) {
+        setloading(false);
+      }
     };
     fetchEvents();
   }, []);
@@ -31,15 +35,13 @@ const Events = () => {
             Upcoming Events
           </h2>
 
-          <div  className="flex justify-center items-center">
-              {" "}
-              {events.length === 0 && (
-                <InfoMessage message="There are no events scheduled." />
-              )}
-            </div>
+          <div className="flex justify-center items-center">
+            {" "}
+            {events.length === 0 && (
+              <InfoMessage message="There are no events scheduled." />
+            )}
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 w-[95%] mx-auto md:grid-cols-3 gap-8">
-           
-
             {events &&
               events.map((event, index) => {
                 return <EventCard key={index} event={event} />;
