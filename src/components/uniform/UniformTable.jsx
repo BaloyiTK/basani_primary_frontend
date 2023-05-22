@@ -165,7 +165,7 @@ const UniformTable = () => {
                       type="text"
                       value={editedName}
                       onChange={(e) => setEditedName(e.target.value)}
-                      className="block w-full border-gray-300 bg-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                      className="block w-fit border-gray-300 bg-gray-500 text-white shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   ) : (
                     uniform.name
@@ -177,7 +177,7 @@ const UniformTable = () => {
                       type="text"
                       value={editedDescription}
                       onChange={(e) => setEditedDescription(e.target.value)}
-                      className="block w-full border-gray-300 bg-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                      className="block w-fit border-gray-300 bg-gray-500 text-white shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   ) : (
                     uniform.description
@@ -189,7 +189,7 @@ const UniformTable = () => {
                       type="text"
                       value={editedPrice}
                       onChange={(e) => setEditedPrice(e.target.value)}
-                      className="block w-full border-gray-300 bg-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                      className="block w-full border-gray-300 bg-gray-500  text-white shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   ) : (
                     uniform.price

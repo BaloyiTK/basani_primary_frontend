@@ -136,7 +136,7 @@ const Table = () => {
                         type="text"
                         value={editedName}
                         onChange={handleNameChange}
-                        className="block w-full border-gray-300 bg-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        className="block w-fit border-gray-500 bg-gray-500 text-white shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                       />
                     ) : (
                       <div className="flex items-center">
@@ -154,7 +154,7 @@ const Table = () => {
                         type="text"
                         value={editedPosition}
                         onChange={handlePositionChange}
-                        className="block w-full border-gray-300 bg-gray-300 shadow-lg focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        className="block w-fit border-gray-300 bg-gray-500 text-white shadow-lg focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                       />
                     ) : (
                       <div className="flex items-center ">
